@@ -1,0 +1,6 @@
+*
+.*
+!parts
+!*.tex
+!Makefile
+!.gitignore
