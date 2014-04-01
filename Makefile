@@ -1,5 +1,5 @@
-DOC	= build_systems_presentation
-TC	= pdflatex
+DOC = build_systems_presentation
+TC = pdflatex
 TCTARGET = pdf
 EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc} 
 VIEWER = zathura
@@ -20,7 +20,7 @@ endef
 	
 default: ${DOC}.pdf 
 
-.PHONY: clean squeaky_clean view presentation twice
+.PHONY: clean squeaky_clean view presentation
 
 clean:
 	rm ${EXPENDABLES}
@@ -33,9 +33,3 @@ view: default
 
 presentation: default
 	${PRESENTER} ${PRESENTER_FLAGS} ${DOC}.${TCTARGET}
-
-twice:
-	for i in {1,2}; do \
-	touch ${DOC}.tex; \
-	make default; \
-	done
