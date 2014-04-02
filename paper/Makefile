@@ -10,7 +10,7 @@ define compiletex
 endef
 	
 # first target is default target: compile our document
-${DOC}.${TCTARGET}: ${DOC}.toc parts/*.tex
+${DOC}.${TCTARGET}: parts/*.tex
 
 # pattern rule for compilation of .tex to target format
 %.${TCTARGET}: %.tex %.toc
