@@ -20,7 +20,7 @@ endef
 	
 default: ${DOC}.pdf 
 
-.PHONY: clean squeaky_clean view presentation
+.PHONY: clean squeaky_clean view presentation edit
 
 clean:
 	rm ${EXPENDABLES}
@@ -33,3 +33,6 @@ view: default
 
 presentation: default
 	${PRESENTER} ${PRESENTER_FLAGS} ${DOC}.${TCTARGET}
+
+edit:
+	gvim -p ${DOC}.tex parts/*.tex Makefile
