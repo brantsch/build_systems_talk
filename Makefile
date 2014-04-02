@@ -6,6 +6,7 @@ VIEWER = zathura
 PRESENTER = impressive
 PRESENTER_FLAGS = --nologo --fade --transtime 250 --transition CrossFade 
 
+# macro defining how .tex files should be compiled
 define compiletex
 	${TC} $<
 endef
@@ -18,14 +19,15 @@ endef
 %.toc: %.tex
 	${compiletex}
 	
-default: ${DOC}.pdf 
+default: ${DOC}.${TCTARGET}
 
+# auxiliary targets
 .PHONY: clean squeaky_clean view presentation edit
 
 clean:
 	rm ${EXPENDABLES}
 
-squeaky_clean: EXPENDABLES+=${DOC}.pdf 
+squeaky_clean: EXPENDABLES+=${DOC}.${TCTARGET}
 squeaky_clean: clean
 
 view: default
