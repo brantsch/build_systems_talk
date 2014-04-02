@@ -11,6 +11,9 @@ define compiletex
 	${TC} $<
 endef
 
+# first target is default target: compile our document
+${DOC}.${TCTARGET}: parts/*.tex
+
 # pattern rule for compilation of .tex to target format
 %.${TCTARGET}: %.tex %.toc
 	${compiletex}
@@ -19,8 +22,6 @@ endef
 %.toc: %.tex
 	${compiletex}
 	
-default: ${DOC}.${TCTARGET}
-
 # auxiliary targets
 .PHONY: clean squeaky_clean view presentation edit
 
@@ -30,10 +31,10 @@ clean:
 squeaky_clean: EXPENDABLES+=${DOC}.${TCTARGET}
 squeaky_clean: clean
 
-view: default
+view: ${DOC}.${TCTARGET}
 	${VIEWER} ${DOC}.${TCTARGET}
 
-presentation: default
+presentation: ${DOC}.${TCTARGET}
 	${PRESENTER} ${PRESENTER_FLAGS} ${DOC}.${TCTARGET}
 
 edit:
