@@ -1,7 +1,7 @@
 DOC = build_systems_paper
 TC = pdflatex
 TCTARGET = pdf
-EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc} 
+EXPENDABLES = ${DOC}.{aux,blg,log,out,toc}
 VIEWER = zathura
 
 # macro defining how .tex files should be compiled
@@ -10,10 +10,16 @@ define compiletex
 endef
 	
 # first target is default target: compile our document
-${DOC}.${TCTARGET}: parts/*.tex
+${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib 
 
 # pattern rule for compilation of .tex to target format
-%.${TCTARGET}: %.tex %.toc
+%.${TCTARGET}: %.tex %.toc %.bbl %.blg
+	${compiletex}
+
+%.bbl %.blg: %.aux
+	bibtex $<
+
+%.aux: %.tex
 	${compiletex}
 
 # pattern rule for generation of .toc files

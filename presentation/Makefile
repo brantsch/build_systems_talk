@@ -1,7 +1,7 @@
 DOC = build_systems_presentation
 TC = pdflatex
 TCTARGET = pdf
-EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc} 
+EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc,bbl,blg} 
 VIEWER = zathura
 PRESENTER = impressive
 PRESENTER_FLAGS = --nologo --fade --transtime 250 --transition CrossFade 
@@ -12,10 +12,16 @@ define compiletex
 endef
 
 # first target is default target: compile our document
-${DOC}.${TCTARGET}: parts/*.tex
+${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
 
 # pattern rule for compilation of .tex to target format
-%.${TCTARGET}: %.tex %.toc
+%.${TCTARGET}: %.tex %.toc %.bbl %.blg
+	${compiletex}
+
+%.bbl %.blg: %.aux
+	bibtex $<
+
+%.aux: %.tex
 	${compiletex}
 
 # pattern rule for generation of .toc files
@@ -35,7 +41,7 @@ view: ${DOC}.${TCTARGET}
 	${VIEWER} ${DOC}.${TCTARGET}
 
 presentation: ${DOC}.${TCTARGET}
-	${PRESENTER} ${PRESENTER_FLAGS} ${DOC}.${TCTARGET}
+	${PRESENTER} ${PRESENTER_FLAGS} $<
 
 edit:
 	gvim -p ${DOC}.tex parts/*.tex Makefile
