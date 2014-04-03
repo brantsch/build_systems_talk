@@ -1,18 +1,25 @@
 \documentclass{beamer}
 
-\usetheme{Hannover}
-
+%\usetheme{Hannover}
+%\usetheme{Madrid}
+\usetheme{Szeged}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{ulem}
 
 \begin{document}
+
+	%% draft: disable \pause FIXME
+	\renewcommand{\pause}{}
 
 	\section{Einführung}
 	\input{parts/titlepage}
 	\input{parts/einfuehrung}
 
 	\section{GNU Make}
+	\input{parts/gnu_make}
+
 	\section{CMake}
 	\section{omake}
 	\section{GNU Autotools}
@@ -20,4 +27,7 @@
 	\section{Abschluss}
 	\input{parts/final_page}
 
+	\section{Literatur}
+	\bibliographystyle{plain}
+	\bibliography{../build_systems}
 \end{document}
