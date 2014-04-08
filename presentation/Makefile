@@ -32,7 +32,7 @@ ${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
 .PHONY: clean squeaky_clean view presentation edit
 
 clean:
-	rm ${EXPENDABLES}
+	-rm -f ${EXPENDABLES}
 
 squeaky_clean: EXPENDABLES+=${DOC}.${TCTARGET}
 squeaky_clean: clean
