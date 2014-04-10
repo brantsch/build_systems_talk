@@ -12,4 +12,4 @@ ${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
 include ../Makefile.common
 
 presentation: ${DOC}.${TCTARGET}
-	${PRESENTER} ${PRESENTER_FLAGS} $<
+	${PRESENTER} ${PRESENTER_FLAGS} $< &
