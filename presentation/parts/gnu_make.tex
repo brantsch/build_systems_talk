@@ -1,0 +1,63 @@
+\subsection{Grundfunktionalität von GNU Make}
+\begin{frame}
+\cite{GNU_Make_manual} Auszug aus dem Handbuch zu GNU Make
+\begin{quote}
+The make utility automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them.
+\end{quote}
+\end{frame}
+
+\subsection{Makefiles}
+\begin{frame}
+\frametitle{Makefile} Konfiguration von Make für ein bestimmtes Projekt
+
+\textbf{Arten von Bestandteilen eines Makefiles}
+\begin{itemize}
+	\item Variable
+	\item Macro: Verfahrensvorschrift, die in Recipes benutzt werden kann
+	\item Rule: Entscheidungsvorschrift für die (Neu-)Erstellung ihres Targets abhängig von mit angegebenen Voraussetzungen
+	\item Target: z.B. Datei, die Make erstellen/aktualisieren soll
+	\item Recipe: Erstellungsvorschrift für ein Target
+\end{itemize}
+\end{frame}
+
+\lstset{language=[gnu]make}
+\begin{frame}[allowframebreaks]
+\lstinputlisting{Makefile}
+\lstinputlisting{../Makefile.common}
+\end{frame}
+
+\subsection{Stärken von Make}
+\begin{frame}
+	\begin{itemize}
+		\item Einfachheit des Einstiegs
+		\item Flexibilität
+	\end{itemize}
+\end{frame}
+
+\subsection{Schwächen von Make}
+\begin{frame}
+	\begin{itemize}
+		\item Verlass auf das Änderungsdatum von Dateien zur Erkennung von Änderungen
+		\item Fehlen der Unterstützung für Out-Of-Place-Builds
+
+			Projekte können nur im Projektverzeichnis gebaut werden
+		\item Boilerplate: häufig benötigte Funktionalität nicht eingebaut
+			\begin{itemize}
+				\item Konfiguration des zu erstellenden Projekts (\texttt{configure} müsste selbst geschrieben werden)
+			\end{itemize}
+		\item Mangel an Portabilität
+			\begin{itemize}
+				\item GNU Make ist \emph{nicht} das einzige Make
+				\item Eigenheiten der POSIX-Systeme
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\subsection{Dokumentation}
+\begin{frame}
+	\begin{itemize}
+	\item Das offizielle Handbuch zu GNU Make \cite{GNU_Make_manual}
+	\item Managing Projects with GNU Make \cite{OreillyMake}
+	\item Debugging Makefiles \cite{DobbsDebuggingMakefiles}
+	\end{itemize}
+\end{frame}

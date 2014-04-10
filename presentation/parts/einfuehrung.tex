@@ -1,11 +1,37 @@
-\subsection{Was sind Build-Systeme?}
 \begin{frame}
+	\frametitle{Was sind Build-Systeme?}
 	\Large
 	Build-Systeme sind Werkzeuge, welche den Erstellungsprozess von Software automatisieren.
 \end{frame}
 
+\subsection{Motivation}
 \begin{frame}
-	\textbf{Was bedeutet das?}
+	\frametitle{Warum Build-Systeme?}
+	\pause
+	\textbf{$\rightarrow$ Erleichterung und Verbesserung der Arbeit}
+	\begin{itemize}
+		\pause
+		\item Erstellung/Neuerstellung mit nur einem Kommando
+		\pause
+		\item projektübergreifend einheitliche Befehle (Konventionen für Build-System Konfiguration)
+		\pause
+		\item Unterstützung der Portierung auf verschiedene Plattformen
+		\pause
+		\item Beschleunigung des Erstellungsprozesses
+			\begin{itemize}
+			\pause
+			\item Ausführung der benötigten Aktionen in rascher Folge ohne Pause (vgl. manuelles Eintippen von Kommandos)
+			\pause
+			\item Vermeidung unnötiger Erstellung/Neuerstellung
+			\pause
+			\item Möglichkeit der automatischen Parallelisierung der Erstellung (bis hin zur verteilten Erstellung auf Build-Farm)
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\subsection*{}
+
+\begin{frame}
+	\frametitle{Was tun Build-Systeme?}
 	\begin{itemize}
 		\pause
 		\item Automatisierung des Übersetzungsprozesses
@@ -18,6 +44,7 @@
 		\pause
 		\item Berücksichtigung von Konfiguration
 			\begin{itemize}
+			\pause
 			\item z.B. Ein- und Ausschalten von Features
 			\end{itemize}
 		\pause
@@ -34,11 +61,11 @@
 \end{frame}
 
 \begin{frame}
-	\textbf{Betrachtete Build-Systeme}
-	\begin{tabular}{p{8em}p{24em}}
+	\frametitle{Betrachtete Build-Systeme}
+	\begin{tabular}{p{8em}p{16em}}
 	GNU Make & Der Klassiker \\
 	CMake & Ein Meta-Make für mehr Portabilität \\
 	omake & \\
-	\sout{Autohell} \linebreak GNU Autotools 
+	\mbox{GNU Autotools} \sout{Autohell} & \mbox{with great power} \linebreak comes great \sout{responsibility} complexity
 	\end{tabular}
 \end{frame}
