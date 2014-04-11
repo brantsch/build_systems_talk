@@ -27,7 +27,7 @@ endef
 #.SECONDARY: ; 
 
 # auxiliary targets
-.PHONY: clean squeaky_clean view presentation edit
+.PHONY: clean squeaky_clean view edit
 
 clean:
 	-rm -f ${EXPENDABLES}

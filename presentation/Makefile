@@ -11,5 +11,7 @@ ${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
 
 include ../Makefile.common
 
+.PHONY: presentation 
+
 presentation: ${DOC}.${TCTARGET}
 	${PRESENTER} ${PRESENTER_FLAGS} $< &
