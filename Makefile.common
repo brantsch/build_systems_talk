@@ -1,3 +1,8 @@
+# first target is default target: compile our document
+all: ${DOC}.${TCTARGET}
+
+${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
+
 # macro defining how .tex files should be compiled
 define compiletex
 	${TC} $<

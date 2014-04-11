@@ -6,9 +6,6 @@ VIEWER = zathura
 PRESENTER = impressive
 PRESENTER_FLAGS = --nologo --fade --transtime 250 --transition CrossFade 
 
-# first target is default target: compile our document
-${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
-
 include ../Makefile.common
 
 .PHONY: presentation 
