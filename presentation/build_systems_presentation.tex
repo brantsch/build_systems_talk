@@ -8,6 +8,7 @@
 \usepackage{ulem}
 \usepackage{listings}
 \usepackage{fix-cm}
+\usepackage{fancyvrb}
 
 \lstset{
 	basicstyle=\fontsize{5pt}{5pt}\selectfont\ttfamily,
@@ -18,10 +19,12 @@
 	numberstyle=\color{gray}
 }
 
+\input{pygments_definitions.tex}
+
 \begin{document}
 
 	%% draft: disable \pause FIXME
-	\renewcommand{\pause}{}
+	%\renewcommand{\pause}{}
 
 	\section{Einführung}
 	\input{parts/titlepage}

@@ -21,9 +21,12 @@ The make utility automatically determines which pieces of a large program need t
 \end{frame}
 
 \lstset{language=[gnu]make}
-\begin{frame}[allowframebreaks]
-\lstinputlisting{Makefile}
-\lstinputlisting{../Makefile.common}
+\begin{frame}[allowframebreaks,fragile]
+\tiny
+\input{listings/Makefile.common.tex}
+\input{listings/Makefile.tex}
+%\lstinputlisting{Makefile}
+%\lstinputlisting{../Makefile.common}
 \end{frame}
 
 \subsection{Stärken von Make}

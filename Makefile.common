@@ -1,12 +1,20 @@
+LISTINGS := $(notdir ${LSTINPUT})
+LISTINGS := $(addsuffix .tex,${LISTINGS})
+LISTINGS := $(addprefix listings/,${LISTINGS})
+
 # first target is default target: compile our document
 all: ${DOC}.${TCTARGET}
 
-${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
+${DOC}.${TCTARGET}: pygments_definitions.tex parts/*.tex ../build_systems.bib ${LISTINGS}
 
 # macro defining how .tex files should be compiled
 define compiletex
 	${TC} $<
 endef
+
+.INTERMEDIATE: pygments_definitions.tex
+pygments_definitions.tex: ;
+	pygments -S ${PYGMENTS_STYLE} > $@
 
 # pattern rule for compilation of .tex to target format
 %.${TCTARGET}: %.tex %.bbl %.toc 
@@ -14,6 +22,18 @@ endef
 
 %.bbl %.blg: %.aux
 	bibtex $<
+
+listings: ;
+	mkdir listings
+
+# macro for highlighting of Makefile source code
+define highlightmakefile
+	pygmentize -l make -f latex -o listings/$(notdir ${1}).tex ${1};
+endef
+
+${LISTINGS}: ${LSTINPUT} 
+	$(foreach SRCFILE,$?,$(call highlightmakefile,${SRCFILE}))
+
 
 # pattern rule for generation of .toc files
 %.aux: %.tex
