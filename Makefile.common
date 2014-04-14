@@ -1,11 +1,7 @@
-LISTINGS := $(notdir ${LSTINPUT})
-LISTINGS := $(addsuffix .tex,${LISTINGS})
-LISTINGS := $(addprefix listings/,${LISTINGS})
-
 # first target is default target: compile our document
 all: ${DOC}.${TCTARGET}
 
-${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib ${LISTINGS}
+${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
 
 # macro defining how .tex files should be compiled
 define compiletex
@@ -13,32 +9,11 @@ define compiletex
 endef
 
 # pattern rule for compilation of .tex to target format
-%.${TCTARGET}: %.tex pygments_style.tex %.bbl %.toc 
+%.${TCTARGET}: %.tex %.bbl %.toc 
 	${compiletex}
 
 %.bbl %.blg: %.aux
 	bibtex $<
-
-listings:
-	mkdir listings
-
-EXPENDABLES += pygments_style.tex
-.INTERMEDIATE: pygments_style.tex
-pygments_style.tex: ;
-	pygmentize -f latex -S ${PYGMENTS_STYLE} > $@
-
-# macro for highlighting of Makefile source code
-define highlightmakefile
-	pygmentize -l make -f latex -o listings/$(notdir ${1}).tex ${1};
-endef
-
-#listings/%.tex: %
-#	$(call highlightmakefile,$<)
-
-${LISTINGS}:: listings
-
-${LISTINGS}:: ${LSTINPUT} 
-	$(foreach SRCFILE,$?,$(call highlightmakefile,${SRCFILE}))
 
 # pattern rule for generation of .toc files
 %.aux: %.tex
@@ -46,7 +21,7 @@ ${LISTINGS}:: ${LSTINPUT}
 
 %.toc: %.tex
 	${compiletex}
-
+#
 # this would prevent make from deleting intermediate files, but I've had to
 # comment it out, because the files in question are:
 # 	* dependencies of the final document

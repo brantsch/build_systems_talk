@@ -1,15 +1,10 @@
 DOC = build_systems_presentation
 TC = pdflatex
 TCTARGET = pdf
-EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc,bbl,blg} 
+EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc,bbl,blg,vrb} 
 VIEWER = zathura
 PRESENTER = impressive
 PRESENTER_FLAGS = --nologo --fade --transtime 250 --transition CrossFade 
-PYGMENTS_STYLE = fruity
-
-LSTINPUT += Makefile
-LSTINPUT += ../Makefile.common
-EXPENDABLES += listings/*
 
 include ../Makefile.common
 
