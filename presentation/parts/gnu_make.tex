@@ -20,8 +20,17 @@ The make utility automatically determines which pieces of a large program need t
 \end{itemize}
 \end{frame}
 
-\lstset{language=[gnu]make}
 \begin{frame}[allowframebreaks,fragile]
+	\setlength{\columnseprule}{.4pt}
+	\begin{multicols}{2}
+	\mymintedstyle
+	{\tiny\textbf{Makefile.common}}
+	\inputminted[linenos=true,stepnumber=5]{make}{../Makefile.common}
+	\vfill\eject
+	{\tiny\textbf{Makefile}}
+	\inputminted[linenos=true,stepnumber=5]{make}{Makefile}
+	\vfill\eject
+	\end{multicols}
 \end{frame}
 
 \subsection{Stärken von Make}

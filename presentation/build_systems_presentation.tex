@@ -6,17 +6,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ulem}
-\usepackage{listings}
 \usepackage{fix-cm}
-\usepackage{fancyvrb}
+\usepackage{minted}
+\usepackage{multicol}
 
-\lstset{
-	basicstyle=\fontsize{5pt}{5pt}\selectfont\ttfamily,
-	numbers=left,
-	keywordstyle=\bfseries\color{violet},
-	%identifierstyle=\color{cyan},
-	commentstyle=\color{blue},
-	numberstyle=\color{gray}
+%\usemintedstyle{tango}
+%\usemintedstyle{murphy}
+\usemintedstyle{friendly}
+\newcommand{\mymintedstyle}{
+	\fontsize{4pt}{4pt}\selectfont
+	\renewcommand{\theFancyVerbLine}{\sffamily
+		\textcolor[gray]{0.3}{
+		\oldstylenums{\arabic{FancyVerbLine}}}}
 }
 
 \begin{document}
