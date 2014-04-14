@@ -5,35 +5,40 @@ LISTINGS := $(addprefix listings/,${LISTINGS})
 # first target is default target: compile our document
 all: ${DOC}.${TCTARGET}
 
-${DOC}.${TCTARGET}: pygments_definitions.tex parts/*.tex ../build_systems.bib ${LISTINGS}
+${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib ${LISTINGS}
 
 # macro defining how .tex files should be compiled
 define compiletex
 	${TC} $<
 endef
 
-.INTERMEDIATE: pygments_definitions.tex
-pygments_definitions.tex: ;
-	pygments -S ${PYGMENTS_STYLE} > $@
-
 # pattern rule for compilation of .tex to target format
-%.${TCTARGET}: %.tex %.bbl %.toc 
+%.${TCTARGET}: %.tex pygments_style.tex %.bbl %.toc 
 	${compiletex}
 
 %.bbl %.blg: %.aux
 	bibtex $<
 
-listings: ;
+listings:
 	mkdir listings
+
+EXPENDABLES += pygments_style.tex
+.INTERMEDIATE: pygments_style.tex
+pygments_style.tex: ;
+	pygmentize -f latex -S ${PYGMENTS_STYLE} > $@
 
 # macro for highlighting of Makefile source code
 define highlightmakefile
 	pygmentize -l make -f latex -o listings/$(notdir ${1}).tex ${1};
 endef
 
-${LISTINGS}: ${LSTINPUT} 
-	$(foreach SRCFILE,$?,$(call highlightmakefile,${SRCFILE}))
+#listings/%.tex: %
+#	$(call highlightmakefile,$<)
 
+${LISTINGS}:: listings
+
+${LISTINGS}:: ${LSTINPUT} 
+	$(foreach SRCFILE,$?,$(call highlightmakefile,${SRCFILE}))
 
 # pattern rule for generation of .toc files
 %.aux: %.tex
@@ -55,7 +60,7 @@ ${LISTINGS}: ${LSTINPUT}
 .PHONY: clean squeaky_clean view edit
 
 clean:
-	-rm -f ${EXPENDABLES}
+	-rm -rf ${EXPENDABLES}
 
 squeaky_clean: EXPENDABLES+=${DOC}.${TCTARGET}
 squeaky_clean: clean
