@@ -1,5 +1,6 @@
 DOC = build_systems_presentation
 TC = pdflatex
+TCFLAGS = --shell-escape
 TCTARGET = pdf
 EXPENDABLES = ${DOC}.{aux,log,nav,out,snm,toc,bbl,blg,vrb} 
 VIEWER = zathura
