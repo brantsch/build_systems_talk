@@ -20,16 +20,20 @@ The make utility automatically determines which pieces of a large program need t
 \end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks,fragile]
-	\setlength{\columnseprule}{.4pt}
+\begin{frame}
 	\begin{multicols}{2}
 	\mymintedstyle
+
 	{\tiny\textbf{Makefile.common}}
 	\inputminted[linenos=true,stepnumber=5]{make}{../Makefile.common}
 	\vfill\eject
-	{\tiny\textbf{Makefile}}
+
+	{\tiny\textbf{presentation/Makefile}}
 	\inputminted[linenos=true,stepnumber=5]{make}{Makefile}
-	\vfill\eject
+
+	{\tiny\textbf{paper/Makefile}}
+	\inputminted[linenos=true,stepnumber=5]{make}{../paper/Makefile}
+
 	\end{multicols}
 \end{frame}
 
