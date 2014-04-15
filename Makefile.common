@@ -1,7 +1,7 @@
 # first target is default target: compile our document
-all: ${DOC}.${TCTARGET}
+all: gitrev ${DOC}.${TCTARGET}
 
-${DOC}.${TCTARGET}: parts/*.tex ../code/* ../build_systems.bib 
+${DOC}.${TCTARGET}: gitrev.tex parts/*.tex ../code/* ../build_systems.bib 
 
 # macro defining how .tex files should be compiled
 define compiletex
@@ -9,7 +9,7 @@ define compiletex
 endef
 
 # pattern rule for compilation of .tex to target format
-%.${TCTARGET}: %.tex gitrev.tex %.bbl %.toc 
+%.${TCTARGET}: %.tex %.bbl %.toc 
 	${compiletex}
 
 %.bbl %.blg: %.aux
@@ -33,13 +33,18 @@ endef
 #
 #.SECONDARY: ; 
 
-.INTERMEDIATE: gitrev.tex
+GITREVCMD = git log -n 1 --pretty=format:%H
+OLDREV = $(shell cat gitrev.tex 2>/dev/null)
+NEWREV = $(shell ${GITREVCMD})
+#$(shell ${GITREVCMD} > gitrev.tex)
 EXPENDABLES += gitrev.tex
-gitrev.tex: ;
-	git log -n 1 --pretty=format:%H > $@
+gitrev:
+ifneq (${OLDREV},${NEWREV})
+	${GITREVCMD} > gitrev.tex
+endif
 
 # auxiliary targets
-.PHONY: clean squeaky_clean view edit
+.PHONY: gitrev clean squeaky_clean view edit
 
 clean:
 	-rm -rf ${EXPENDABLES}
