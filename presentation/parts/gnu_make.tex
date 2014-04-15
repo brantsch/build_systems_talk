@@ -22,6 +22,76 @@ The make utility automatically determines which pieces of a large program need t
 \end{description}
 \end{frame}
 
+\begin{frame}
+\frametitle{Variablen}
+	\textbf{Definition/Redefinition einer Variable}
+	\begin{syntdiag}
+		\synt{variable name}
+		\begin{stack}
+			'=' \\
+			':='
+		\end{stack}
+		\begin{rep}
+			\synt{string}
+		\end{rep}
+	\end{syntdiag}
+
+	\textbf{Anhängen an eine Variable}
+	\begin{syntdiag}
+		\synt{variable name}
+		‘+=’
+		\begin{rep}
+			\synt{string}
+		\end{rep}
+	\end{syntdiag}
+\begin{description}
+	\item[rekursiv expandierte Variablen]
+	\item[einfach expandierte Variablen]
+\end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Regeln}
+	\textbf{rule}
+	\begin{syntdiag}
+		\begin{rep}
+			\synt{target}
+		\end{rep}
+		\begin{stack}
+			‘:’ \\
+			‘::’
+		\end{stack}
+		\begin{rep}
+			\synt{dependency}
+		\end{rep}
+		\begin{stack}
+			\\
+			\synt{newline}
+			\begin{rep}
+				\synt{recipe line}
+			\end{rep}
+		\end{stack}
+	\end{syntdiag}
+
+	\textbf{recipe line}
+	\begin{syntdiag}
+		\synt{tab}
+		\begin{stack}
+			\\
+			\begin{rep}
+				\synt{string}
+				\synt{backslash}
+				\synt{newline}
+			\end{rep}
+		\end{stack}
+		\synt{string}
+	\end{syntdiag}
+\end{frame}
+
+\begin{frame}
+\frametitle{Targets}
+\end{frame}
+
 \begin{frame}[allowframebreaks]
 	\frametitle{Makefile für Worm000}
 	\inputmintedmake{../code/Worm000_Makefile}
