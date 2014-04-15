@@ -7,8 +7,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{ulem}
 \usepackage{fix-cm}
+\usepackage[nounderscore]{syntax}
 \usepackage{minted}
-\usepackage{multicol}
 
 %\usemintedstyle{tango}
 %\usemintedstyle{murphy}
@@ -25,6 +25,9 @@
 	\inputminted[linenos=true,stepnumber=5]{make}{#1}
 }
 
+%suppress the navigation bar
+\beamertemplatenavigationsymbolsempty
+
 \begin{document}
 
 	%% draft: disable \pause FIXME
@@ -32,6 +35,7 @@
 
 	\section{Einführung}
 	\input{parts/titlepage}
+	\input{myawesomefooter}
 	\input{parts/einfuehrung}
 
 	\section{GNU Make}
