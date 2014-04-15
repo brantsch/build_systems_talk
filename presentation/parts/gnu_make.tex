@@ -20,21 +20,34 @@ The make utility automatically determines which pieces of a large program need t
 \end{itemize}
 \end{frame}
 
+\begin{frame}[allowframebreaks]
+	\frametitle{Makefile für Worm000}
+	\inputmintedmake{../code/Worm000_Makefile}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Makefile für Worm030}
+	\inputmintedmake{../code/Worm030_Makefile}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Makefile für Worm050}
+	\inputmintedmake{../code/Worm050_Makefile}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Makefile für Worm080}
+	\inputmintedmake{../code/Worm080_Makefile}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Makefile.common}
+	\inputmintedmake{../Makefile.common}
+\end{frame}
+
 \begin{frame}
-	\begin{multicols}{2}
-	\mymintedstyle
-
-	{\tiny\textbf{Makefile.common}}
-	\inputminted[linenos=true,stepnumber=5]{make}{../Makefile.common}
-	\vfill\eject
-
-	{\tiny\textbf{presentation/Makefile}}
-	\inputminted[linenos=true,stepnumber=5]{make}{Makefile}
-
-	{\tiny\textbf{paper/Makefile}}
-	\inputminted[linenos=true,stepnumber=5]{make}{../paper/Makefile}
-
-	\end{multicols}
+	\frametitle{presentation/Makefile}
+	\inputmintedmake{Makefile}
 \end{frame}
 
 \subsection{Stärken von Make}

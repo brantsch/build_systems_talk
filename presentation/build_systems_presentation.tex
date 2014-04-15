@@ -14,10 +14,15 @@
 %\usemintedstyle{murphy}
 \usemintedstyle{friendly}
 \newcommand{\mymintedstyle}{
-	\fontsize{4pt}{4pt}\selectfont
+	%\fontsize{4pt}{4pt}\selectfont
+	\tiny
 	\renewcommand{\theFancyVerbLine}{\sffamily
 		\textcolor[gray]{0.3}{
 		\oldstylenums{\arabic{FancyVerbLine}}}}
+}
+\newcommand{\inputmintedmake}[1]{
+	\mymintedstyle
+	\inputminted[linenos=true,stepnumber=5]{make}{#1}
 }
 
 \begin{document}

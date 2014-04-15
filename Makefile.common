@@ -1,7 +1,7 @@
 # first target is default target: compile our document
 all: ${DOC}.${TCTARGET}
 
-${DOC}.${TCTARGET}: parts/*.tex ../build_systems.bib
+${DOC}.${TCTARGET}: parts/*.tex ../code/* ../build_systems.bib
 
 # macro defining how .tex files should be compiled
 define compiletex
@@ -21,7 +21,7 @@ endef
 
 %.toc: %.tex
 	${compiletex}
-#
+
 # this would prevent make from deleting
 # intermediate files, but I've had to comment it
 # out, because the files in question are: 
