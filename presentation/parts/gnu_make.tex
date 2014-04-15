@@ -1,6 +1,6 @@
 \subsection{Grundfunktionalität von GNU Make}
 \begin{frame}
-\cite{GNU_Make_manual} Auszug aus dem Handbuch zu GNU Make
+Auszug aus dem Handbuch zu GNU Make
 \begin{quote}
 The make utility automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them.
 \end{quote}
@@ -9,15 +9,17 @@ The make utility automatically determines which pieces of a large program need t
 \subsection{Makefiles}
 \begin{frame}
 \frametitle{Makefile} Konfiguration von Make für ein bestimmtes Projekt
+\end{frame}
 
-\textbf{Arten von Bestandteilen eines Makefiles}
-\begin{itemize}
-	\item Variable
-	\item Macro: Verfahrensvorschrift, die in Recipes benutzt werden kann
-	\item Rule: Entscheidungsvorschrift für die (Neu-)Erstellung ihres Targets abhängig von mit angegebenen Voraussetzungen
-	\item Target: z.B. Datei, die Make erstellen/aktualisieren soll
-	\item Recipe: Erstellungsvorschrift für ein Target
-\end{itemize}
+\begin{frame}
+\frametitle{Bestandteile eines Makefiles}
+\begin{description}
+	\item[Target] z.B. Datei, die Make erstellen/aktualisieren soll
+	\item[Recipe] Erstellungsvorschrift für ein Target
+	\item[Rule] Zuordnung von Abhängigkeiten und \emph{Recipe} zu einem \emph{Target}
+	\item[Variable] Benannte Referenz auf eine Zeichenkette
+	\item[Macro] Verfahrensvorschrift, die in Recipes benutzt werden kann
+\end{description}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
