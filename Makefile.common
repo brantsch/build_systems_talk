@@ -1,5 +1,5 @@
 # first target is default target: compile our document
-all: gitrev ${DOC}.${TCTARGET}
+all: ${DOC}.${TCTARGET}
 
 ${DOC}.${TCTARGET}: gitrev.tex parts/*.tex ../code/* ../build_systems.bib 
 
@@ -33,18 +33,17 @@ endef
 #
 #.SECONDARY: ; 
 
+# generate gitrev.tex which contains the SHA1 of the HEAD
 GITREVCMD = git log -n 1 --pretty=format:%H
 OLDREV = $(shell cat gitrev.tex 2>/dev/null)
 NEWREV = $(shell ${GITREVCMD})
-#$(shell ${GITREVCMD} > gitrev.tex)
 EXPENDABLES += gitrev.tex
-gitrev:
 ifneq (${OLDREV},${NEWREV})
-	${GITREVCMD} > gitrev.tex
+$(shell ${GITREVCMD} > gitrev.tex)
 endif
 
 # auxiliary targets
-.PHONY: gitrev clean squeaky_clean view edit
+.PHONY: clean squeaky_clean view edit
 
 clean:
 	-rm -rf ${EXPENDABLES}
