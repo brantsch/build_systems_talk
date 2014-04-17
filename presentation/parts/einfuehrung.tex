@@ -1,5 +1,6 @@
 \begin{frame}
 	\frametitle{Was sind Build-Systeme?}
+	\pause
 	\Large
 	Build-Systeme sind Werkzeuge, welche den Erstellungsprozess von Software automatisieren.
 \end{frame}
@@ -62,10 +63,14 @@
 
 \begin{frame}
 	\frametitle{Betrachtete Build-Systeme}
-	\begin{tabular}{p{8em}p{16em}}
-	GNU Make & Der Klassiker \\
-	CMake & Ein Meta-Make für mehr Portabilität \\
-	omake & \\
-	\mbox{GNU Autotools} \sout{Autohell} & \mbox{with great power} \linebreak comes great \sout{responsibility} complexity
-	\end{tabular}
+	\begin{description}
+		\pause
+		\item[GNU Make] der Klassiker
+		\pause
+		\item[CMake] Feature-reiches Meta-Make für mehr Portabilität
+		\pause
+		\item[omake] sehr umfangreich, vergleichbar CMake, keine Codeerzeugung
+		\pause
+		\item[GNU Autotools] with great power comes great \sout{responsibility} complexity
+	\end{description}
 \end{frame}
