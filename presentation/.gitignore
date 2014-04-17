@@ -1,7 +1,7 @@
 *
 .*
+!*.tex
 gitrev.tex
 !parts
-!*.tex
 !Makefile
 !.gitignore
