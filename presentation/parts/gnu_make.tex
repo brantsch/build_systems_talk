@@ -22,8 +22,42 @@ The make utility automatically determines which pieces of a large program need t
 \end{description}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Variablen}
+	\textbf{Strings}
+	\begin{syntdiag}
+		\begin{rep}
+			\begin{stack}
+				\tok{ASCII Zeichen ohne \$} \\
+				\$\$ \\
+				\synt{variablenreferenz} \\
+				\synt{funktionsaufruf}
+			\end{stack}
+		\end{rep}
+	\end{syntdiag}
+
+	\textbf{Variablenreferenz}
+	\begin{syntdiag}
+		\$ \begin{stack}
+			\{ \synt{string} \} \\
+			( \synt{string} )
+		\end{stack}
+	\end{syntdiag}
+
+	\textbf{Funktionsaufruf}
+	\begin{syntdiag}
+		‘\$(’ \synt{name}
+		\synt{whitespace}
+		\begin{stack}
+			\\
+			\begin{rep}
+				\synt{string} ‘,’
+			\end{rep}
+		\end{stack}
+		\synt{string}
+		‘)’
+	\end{syntdiag}
+
 	\textbf{Definition/Redefinition einer Variable}
 	\begin{syntdiag}
 		\synt{variable name}
@@ -35,6 +69,17 @@ The make utility automatically determines which pieces of a large program need t
 			\synt{string}
 		\end{rep}
 	\end{syntdiag}
+	\begin{syntdiag}
+		‘define’
+		\synt{variable name}
+		‘=’
+		\synt{newline}
+		\begin{rep}
+			\synt{string}
+			\synt{newline}
+		\end{rep}
+		‘endef’
+	\end{syntdiag}
 
 	\textbf{Anhängen an eine Variable}
 	\begin{syntdiag}
@@ -44,10 +89,15 @@ The make utility automatically determines which pieces of a large program need t
 			\synt{string}
 		\end{rep}
 	\end{syntdiag}
-\begin{description}
-	\item[rekursiv expandierte Variablen]
-	\item[einfach expandierte Variablen]
-\end{description}
+
+	\vfill\eject
+
+	\begin{description}
+		\item[rekursiv expandierte Variablen] keine Expansion in Definition,
+			rekursive Expansion bei Referenz
+		\item[einfach expandierte Variablen] Expansion erfolgt \emph{einmalig} bei Definition/Redefinition
+		\item[automatische Variablen] Belegung durch Make
+	\end{description}
 \end{frame}
 
 \begin{frame}
@@ -61,9 +111,11 @@ The make utility automatically determines which pieces of a large program need t
 			‘:’ \\
 			‘::’
 		\end{stack}
-		\begin{rep}
-			\synt{dependency}
-		\end{rep}
+		\begin{stack}
+			\begin{rep}
+				\synt{prerequisite}
+			\end{rep} \\
+		\end{stack}
 		\begin{stack}
 			\\
 			\synt{newline}
@@ -89,17 +141,43 @@ The make utility automatically determines which pieces of a large program need t
 \end{frame}
 
 \begin{frame}
-\frametitle{Targets}
-\end{frame}
+\frametitle{Targets und Prerequisites}
+	\textbf{Target}
+	\begin{syntdiag}
+		\begin{stack}
+			\synt{dateiname} \\
+			\synt{pattern}
+		\end{stack}
+	\end{syntdiag}
 
 \begin{frame}[allowframebreaks]
 	\frametitle{Makefile für Worm000}
 	\inputmintedmake{../code/Worm000_Makefile}
 \end{frame}
+	\textbf{Prerequisite}
+	\begin{syntdiag}
+		\begin{stack}
+			\synt{anderes target} \\
+			\synt{dateiname} \\
+			\synt{pattern}
+		\end{stack}
+	\end{syntdiag}
 
 \begin{frame}[allowframebreaks]
 	\frametitle{Makefile für Worm030}
 	\inputmintedmake{../code/Worm030_Makefile}
+	\textbf{Pattern}
+	\begin{syntdiag}
+		\begin{stack}
+			\\
+			\synt{string ohne whitespace}
+		\end{stack}
+		‘\%’
+		\begin{stack}
+			\\
+			\synt{string ohne whitespace}
+		\end{stack}
+	\end{syntdiag}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
