@@ -1,12 +1,3 @@
-\subsection{Grundfunktionalität von GNU Make}
-\begin{frame}
-Auszug aus dem Handbuch zu GNU Make
-\begin{quote}
-The make utility automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them.
-\end{quote}
-\end{frame}
-
-\subsection{Makefiles}
 \begin{frame}
 \frametitle{Makefile} Konfiguration von Make für ein bestimmtes Projekt
 \end{frame}
@@ -171,70 +162,4 @@ The make utility automatically determines which pieces of a large program need t
 			\synt{string ohne whitespace}
 		\end{stack}
 	\end{syntdiag}
-\end{frame}
-
-%\begin{frame}[allowframebreaks]
-%	\frametitle{Makefile für Worm000}
-%	\inputmintedmake{../code/Worm000_Makefile}
-%\end{frame}
-%
-%\begin{frame}[allowframebreaks]
-%	\frametitle{Makefile für Worm030}
-%	\inputmintedmake{../code/Worm030_Makefile}
-%\end{frame}
-%
-%\begin{frame}[allowframebreaks]
-%	\frametitle{Makefile für Worm050}
-%	\inputmintedmake{../code/Worm050_Makefile}
-%\end{frame}
-
-\begin{frame}[allowframebreaks]
-	\frametitle{Makefile für Worm080}
-	\inputmintedmake{../code/Worm080_Makefile}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-	\frametitle{Makefile.common}
-	\inputmintedmake{../Makefile.common}
-\end{frame}
-
-\begin{frame}
-	\frametitle{presentation/Makefile}
-	\inputmintedmake{Makefile}
-\end{frame}
-
-\subsection{Stärken von Make}
-\begin{frame}
-	\begin{itemize}
-		\item Einfachheit des Einstiegs
-		\item Flexibilität
-	\end{itemize}
-\end{frame}
-
-\subsection{Schwächen von Make}
-\begin{frame}
-	\begin{itemize}
-		\item Verlass auf das Änderungsdatum von Dateien zur Erkennung von Änderungen
-		\item Fehlen der Unterstützung für Out-Of-Place-Builds
-
-			Projekte können nur im Projektverzeichnis gebaut werden
-		\item Boilerplate: häufig benötigte Funktionalität nicht eingebaut
-			\begin{itemize}
-				\item Konfiguration des zu erstellenden Projekts (\texttt{configure} müsste selbst geschrieben werden)
-			\end{itemize}
-		\item Mangel an Portabilität
-			\begin{itemize}
-				\item GNU Make ist \emph{nicht} das einzige Make
-				\item Eigenheiten der POSIX-Systeme
-			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\subsection{Dokumentation}
-\begin{frame}
-	\begin{itemize}
-	\item Das offizielle Handbuch zu GNU Make \cite{GNU_Make_manual}
-	\item Managing Projects with GNU Make \cite{OreillyMake}
-	\item Debugging Makefiles \cite{DobbsDebuggingMakefiles}
-	\end{itemize}
 \end{frame}
