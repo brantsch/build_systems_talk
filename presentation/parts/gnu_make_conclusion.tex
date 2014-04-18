@@ -1,35 +1,49 @@
-\subsection{Stärken von Make}
+\subsection{Bewertung von GNU Make}
 \begin{frame}
+	\frametitle{Stärken von GNU Make}
 	\begin{itemize}
+		\pause
 		\item Einfachheit des Einstiegs
+		\pause
+		\item für viele Anwendungsfälle ausreichende Mächtigkeit
+		\pause
 		\item Flexibilität
 	\end{itemize}
 \end{frame}
 
-\subsection{Schwächen von Make}
 \begin{frame}
+	\frametitle{Schwächen von GNU Make}
 	\begin{itemize}
+		\pause
+		\item Unbequemlichkeit des Debuggings/Fehlen eines Debuggers
+		\pause
 		\item Verlass auf das Änderungsdatum von Dateien zur Erkennung von Änderungen
+		\pause
 		\item Fehlen der Unterstützung für Out-Of-Place-Builds
 
-			Projekte können nur im Projektverzeichnis gebaut werden
-		\item Boilerplate: häufig benötigte Funktionalität nicht eingebaut
-			\begin{itemize}
-				\item Konfiguration des zu erstellenden Projekts (\texttt{configure} müsste selbst geschrieben werden)
-			\end{itemize}
+			Projekte können (ohne eigene Hacks) nur im Projektverzeichnis gebaut werden
+		\pause
+		\item „Geschwätzigkeit“ von Makefiles für Standard-Aufgaben
+		\pause
 		\item Mangel an Portabilität
 			\begin{itemize}
+				\pause
 				\item GNU Make ist \emph{nicht} das einzige Make
-				\item Eigenheiten der POSIX-Systeme
+				\pause
+				\item Eigenheiten der verschiedenen POSIX-Systeme und Make-Implementierungen
 			\end{itemize}
 	\end{itemize}
 \end{frame}
 
 \subsection{Dokumentation}
 \begin{frame}
+	\frametitle{Literatur zu GNU Make}
 	\begin{itemize}
-	\item Das offizielle Handbuch zu GNU Make \cite{GNU_Make_manual}
-	\item Managing Projects with GNU Make \cite{OreillyMake}
-	\item Debugging Makefiles \cite{DobbsDebuggingMakefiles}
+	\pause
+	\item Das offizielle Handbuch zu GNU Make \nocite{GNU_Make_manual}
+	\pause
+	\item Managing Projects with GNU Make \nocite{OreillyMake}
+	\pause
+	\item Debugging Makefiles \nocite{DobbsDebuggingMakefiles}
 	\end{itemize}
 \end{frame}
