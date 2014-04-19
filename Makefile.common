@@ -8,17 +8,27 @@ define compiletex
 	${TC} ${TCFLAGS} $<
 endef
 
+define addbibpart
+BBLFILES += $(1).bbl
+AUXFILES += $(1).aux
+EXPENDABLES += $(1).blg
+endef
+undefine BBLFILES
+undefine AUXFILES
+$(foreach bibpart,${BIBPARTS},$(eval $(call addbibpart,${bibpart})))
+EXPENDABLES += ${BBLFILES} ${AUXFILES}
+
 # pattern rule for compilation of .tex to target format
-%.${TCTARGET}: %.tex %.bbl %.toc 
+%.${TCTARGET}: %.tex ${BBLFILES} %.toc 
 	${compiletex}
 
-%.bbl %.blg: %.aux
+%.bbl: %.aux
 	bibtex $<
 
-# pattern rule for generation of .toc files
-%.aux: %.tex
+${AUXFILES}: ${DOC}.tex
 	${compiletex}
 
+# pattern rule for generation of .toc files
 %.toc: %.tex
 	${compiletex}
 
