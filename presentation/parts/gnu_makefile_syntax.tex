@@ -4,18 +4,24 @@
 
 \begin{frame}
 \frametitle{Bestandteile eines Makefiles}
-\begin{description}
-	\item[Target] z.B. Datei, die Make erstellen/aktualisieren soll
-	\item[Recipe] Erstellungsvorschrift für ein Target
-	\item[Rule] Zuordnung von Abhängigkeiten und \emph{Recipe} zu einem \emph{Target}
-	\item[Variable] Benannte Referenz auf eine Zeichenkette
-	\item[Macro] Verfahrensvorschrift, die in Recipes benutzt werden kann
+\begin{description}[Variablendefinitionen] %length of options argument is measured to set width of items in description
+	\item[Regeln] Beschreiben wann und wie Dateien (\emph{Targets}) abhängig von \emph{Prerequisites} erstellt werden sollen.
+		\begin{description}
+		\item[explizit] Targets benennen Dateien
+		\item[implizit] Targets benennen Klassen von Dateien
+		\end{description}
+	\item[Direktiven] z.B. \begin{itemize}
+			\item Einlesen anderer Makefiles
+			\item Kontrollstrukturen für Entscheidungen
+			\item Definition mehrzeiliger Variablen
+		\end{itemize}
+	\item[Variablendefinitionen] Zuweisungen von Zeichenketten zu Namen
+	\item[Kommentare]
 \end{description}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-\frametitle{Variablen}
-	\textbf{Strings}
+\begin{frame}
+	\frametitle{Strings}
 	\begin{syntdiag}
 		\begin{rep}
 			\begin{stack}
@@ -26,16 +32,10 @@
 			\end{stack}
 		\end{rep}
 	\end{syntdiag}
+\end{frame}
 
-	\textbf{Variablenreferenz}
-	\begin{syntdiag}
-		\$ \begin{stack}
-			\{ \synt{string} \} \\
-			( \synt{string} )
-		\end{stack}
-	\end{syntdiag}
-
-	\textbf{Funktionsaufruf}
+\begin{frame}
+	\frametitle{Funktionsaufrufe}
 	\begin{syntdiag}
 		‘\$(’ \synt{name}
 		\synt{whitespace}
@@ -47,6 +47,26 @@
 		\end{stack}
 		\synt{string}
 		‘)’
+	\end{syntdiag}
+\end{frame}
+
+\begin{frame}[allowframebreaks,fragile]
+\frametitle{Variablen}
+
+	\begin{description}[rekursiv expandierte Variablen]
+		\item[rekursiv expandierte Variablen] keine Expansion in Definition, rekursive Expansion bei Referenz
+		\item[einfach expandierte Variablen] Expansion erfolgt \emph{einmalig} bei Definition/Redefinition
+		\item[automatische Variablen] Belegung durch Make
+	\end{description}
+
+	\framebreak
+
+	\textbf{Variablenreferenz}
+	\begin{syntdiag}
+		\$ \begin{stack}
+			\{ \synt{string} \} \\
+			( \synt{string} )
+		\end{stack}
 	\end{syntdiag}
 
 	\textbf{Definition/Redefinition einer Variable}
@@ -82,16 +102,9 @@
 	\end{syntdiag}
 
 	\vfill\eject
-
-	\begin{description}
-		\item[rekursiv expandierte Variablen] keine Expansion in Definition,
-			rekursive Expansion bei Referenz
-		\item[einfach expandierte Variablen] Expansion erfolgt \emph{einmalig} bei Definition/Redefinition
-		\item[automatische Variablen] Belegung durch Make
-	\end{description}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Regeln}
 	\textbf{rule}
 	\begin{syntdiag}
