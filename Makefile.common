@@ -17,6 +17,7 @@ undefine BBLFILES
 undefine AUXFILES
 $(foreach bibpart,${BIBPARTS},$(eval $(call addbibpart,${bibpart})))
 EXPENDABLES += ${BBLFILES} ${AUXFILES}
+.INTERMEDIATE: ${AUXFILES}
 
 # pattern rule for compilation of .tex to target format
 %.${TCTARGET}: %.tex ${BBLFILES} %.toc 
