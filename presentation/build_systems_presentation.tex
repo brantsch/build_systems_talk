@@ -49,11 +49,12 @@
 %create parts of bibliography
 \newcites{gnumakebib}{Literatur zu GNU Make}
 \newcites{cmakebib}{Literatur zu CMake}
+\newcites{autotoolsbib}{Literatur zu den GNU Autotools}
 
 \begin{document}
 
 	%% draft: disable \pause FIXME
-	\renewcommand{\pause}{}
+	%\renewcommand{\pause}{}
 
 	\section{Einführung}
 	\input{parts/titlepage}
@@ -71,6 +72,7 @@
 		\input{parts/cmake}
 	\section{omake}
 	\section{GNU Autotools}
+		\input{parts/autotools}
 
 	\section{Abschluss}
 	\input{parts/final_page}
