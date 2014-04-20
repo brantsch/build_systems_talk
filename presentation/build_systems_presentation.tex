@@ -22,8 +22,10 @@
 		\oldstylenums{\arabic{FancyVerbLine}}}}
 }
 \newcommand{\inputmintedmake}[1]{
+	{
 	\mymintedstyle
 	\inputminted[linenos=true,stepnumber=5]{make}{#1}
+	}
 }
 
 \newcommand{\makeawesomefooter}{
@@ -54,7 +56,7 @@
 \begin{document}
 
 	%% draft: disable \pause FIXME
-	%\renewcommand{\pause}{}
+	\renewcommand{\pause}{}
 
 	\section{Einführung}
 	\input{parts/titlepage}
