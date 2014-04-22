@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[xcolor={table}]{beamer}
 
 \usetheme{Montpellier}
 
@@ -10,6 +10,20 @@
 \usepackage[nounderscore]{syntax}
 \usepackage{multibib}
 \usepackage{minted}
+
+%give us a nice checkmark
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\tblcenter}[1]{
+	\vspace*{\fill}%
+	\hspace*{\fill}%
+	#1%
+	\hspace*{\fill}%
+	\vspace*{\fill}%
+}
+\newcommand{\tblcmark}{\tblcenter{\cmark}}
+\newcommand{\tblxmark}{\tblcenter{\xmark}}
 
 %\usemintedstyle{tango}
 %\usemintedstyle{murphy}
@@ -78,6 +92,8 @@
 			\input{parts/omake}
 		\subsection{GNU Autotools}
 			\input{parts/autotools}
+		\subsection{Zusatzleistungen}
+			\input{parts/build_system_table}
 
 	\section{Abschluss}
 	\input{parts/final_page}

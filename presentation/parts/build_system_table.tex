@@ -1,0 +1,39 @@
+\newenvironment{bstable}{%
+	\definecolor{lightgray}{gray}{0.9}%
+	\rowcolors{1}{white}{lightgray}%
+	\begin{tabular}{p{0.15\textwidth}|p{0.18\textwidth}p{0.18\textwidth}p{0.18\textwidth}p{0.18\textwidth}}%
+	& \textbf{(GNU) Make} & \textbf{OMake} & \textbf{CMake} & \textbf{Autotools} \\ \hline%
+}{%
+	\end{tabular}%
+}
+\begin{frame}[allowframebreaks]
+	\frametitle{Vergleich von GNU Make, OMake, CMake, Autotools}
+	\begin{bstable}
+	Plattfor\-men 				 & POSIX & alle von OCaml unterstützten Plattformen & u.a. POSIX, Windows, OS/2 & POSIX \\
+	Unterstützung bei Cross-Compilation & & & \tblcmark & \tblcmark \\
+	Unterstützung bei Portierung & & & \tblcmark & \tblcmark \\
+	\end{bstable}
+
+	\framebreak
+
+	\begin{bstable}
+	interaktive Konfigu\-ration des Projekts & \tblxmark		 & 			 								& \tblcmark 				& \tblcmark \\
+	Autokon\-figuration & & \tblcmark & \tblcmark & \tblcmark \\
+	Ausführen von Tests 	 & & \tblcmark & \tblcmark & \\
+	\end{bstable}
+	
+	\framebreak
+
+	\begin{bstable}
+	Erkennung von Änderungen & Zeitstempel & MD5 Digest & &\\
+	Fort\-schritts\-anzeige & & \tblcmark & \tblcmark & \\
+	Out-Of-Place Builds 		 & 		 & \tblcmark 								& \tblcmark 				& \tblcmark \\
+	\end{bstable}
+	
+	\framebreak
+
+	\begin{bstable}
+	Erweiter\-barkeit & C, C++, Guile (Scheme) & OCaml & \tblxmark & \tblxmark \\
+	\end{bstable}
+
+\end{frame}
