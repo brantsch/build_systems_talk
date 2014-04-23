@@ -41,8 +41,6 @@ else
 endif
 
 #### Fixed variable definitions
-.SUFFICES:
-.SUFFICES: .c .o
 CC = gcc
 RM_DIR = rm -rf
 MKDIR = mkdir
