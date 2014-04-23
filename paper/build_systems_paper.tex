@@ -3,12 +3,34 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{fix-cm}
+\usepackage{hyperref}
+\usepackage{multibib}
+
+%create parts of bibliography
+\newcites{gnumakebib}{Literatur zu GNU Make}
+\newcites{cmakebib}{Literatur zu CMake}
+\newcites{autotoolsbib}{Literatur zu den GNU Autotools}
+\newcites{omakebib}{Literatur zu OMake}
 
 \begin{document}
+	\pagenumbering{gobble}
 	\input{parts/titlepage}
 	\clearpage
 	\tableofcontents
+	\pagebreak
+	\pagenumbering{arabic}
 
-	\section{Einführung}
+	\chapter{Einführung}
 	\input{parts/einfuehrung}
+
+	%\chapter*{Literatur}
+	\addcontentsline{toc}{chapter}{Literatur}
+	%\section*{Literatur zu GNU Make}
+		\input{../bibparts/gnumake.tex}
+	%\section*{Literatur zu OMake}
+		\input{../bibparts/omake.tex}
+	%\section*{Literatur zu den GNU Autotools}
+		\input{../bibparts/autotools.tex}
+	%\section*{Literatur zu CMake}
+		\input{../bibparts/cmake.tex}
 \end{document}
