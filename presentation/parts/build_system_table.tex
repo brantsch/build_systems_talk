@@ -11,7 +11,7 @@
 	\begin{bstable}
 	Plattfor\-men 				 & POSIX & von OCaml unterstützte & POSIX, Windows, OS/2, etc. & POSIX \\
 	Unterstützung bei Cross-Compilation & \tblxmark & \tblxmark & \tblcmark & \tblcmark \\
-	Unterstützung bei Portierung & \tblxmark & & \tblcmark & \tblcmark \\
+	Unterstützung bei Portierung & \tblxmark & \tblcenter{???} & \tblcmark & \tblcmark \\
 	\end{bstable}
 
 	\framebreak
@@ -25,12 +25,17 @@
 	\framebreak
 
 	\begin{bstable}
-	Erkennung von Änderungen 	& Zeit\-stempel & MD5 Digest & variiert\footnotemark & Zeitstempel\\
+	Erkennung von Änderungen 	& Zeit\-stempel & MD5 Digest & \tblcenter{???} & Zeitstempel\\
+	Abhängigkeits\-analyse		& \tblxmark & \tblcmark & \tblcmark & \tblcmark \\
+	\end{bstable}
+
+	\framebreak
+
+	\begin{bstable}
 	Parallele Erstellungs\-schritte & \tblcmark	& \tblcmark	& \tblcmark & \tblcmark \\
 	Fort\-schritts\-anzeige 	& \tblxmark & \tblcmark & \tblcmark & \tblxmark \\
-	Out-Of-Source Builds 		& \tblxmark & \tblxmark & \tblcmark & \tblcmark \\
+	Out-Of-Source Builds 		& \tblxmark & \tblcmark & \tblcmark & \tblcmark \\
 	\end{bstable}
-	\footnotetext{abhängig vom nativen Build-System für welches CMake Code generiert}
 	
 	\framebreak
 
