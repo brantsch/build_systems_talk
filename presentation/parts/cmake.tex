@@ -2,15 +2,27 @@
 	\frametitle{CMake}
 	\begin{itemize}
 		\pause
-		\item \emph{Meta-Make} bzw. \emph{Make-Make}: generiert Konfiguration für plattformabhängige Build-Systeme
+		\item weniger komplizierte Sammlung von Programmen
 		\pause
-		\item \emph{cross-platform}: Codegeneratoren für diverse native Build-Systeme/IDEs
-
-			z.B.:
-			\begin{itemize}
-				\item Unix Makefiles
-				\item Borland Makefiles
-				\item Visual Studio Projekte
-			\end{itemize}
+		\item Autotools-ähnliche Funktionalität
+		\pause
+		\item deutlich geringere Komplexität der Bedienung (vgl. Autotools)
+%		\pause
+%		\item \emph{Build-System-Generator} bzw. \emph{Make-Make}: erzeugt Konfiguration für native Build-Systeme
+%		\pause
+%		\item \emph{cross-platform}: Codegeneratoren für diverse native Build-Systeme/IDEs, nicht auf POSIX beschränkt
+%
+%			z.B.:
+%			\begin{itemize}
+%				\item Unix Makefiles
+%				\item Borland Makefiles
+%				\item Visual Studio Projekte
+%			\end{itemize}
 	\end{itemize}
+	\begin{description}
+		\item[CMake] Build-System-Generator für diverse Build-Systeme auf vielen Plattformen
+		\item[CTest] Werkzeug für Softwaretest
+		\item[CDash] Dashboard für Testergebnisse, vgl. Continuous Integration
+		\item[CPack] Paketierwerkzeug
+	\end{description}
 \end{frame}
