@@ -1,21 +1,26 @@
 \begin{frame}
-\frametitle{Makefile} Konfiguration von Make für ein bestimmtes Projekt
+	\frametitle{Makefile}
+	Konfiguration von Make für ein bestimmtes Projekt
 \end{frame}
 
 \begin{frame}
 \frametitle{Bestandteile eines Makefiles}
 \begin{description}[Variablendefinitionen] %length of options argument is measured to set width of items in description
+	\pause
 	\item[Regeln] Beschreiben wann und wie Dateien (\emph{Targets}) abhängig von \emph{Prerequisites} erstellt werden sollen.
 		\begin{description}
 		\item[explizit] Targets benennen Dateien
 		\item[implizit] Targets benennen Klassen von Dateien
 		\end{description}
+	\pause
 	\item[Direktiven] z.B. \begin{itemize}
 			\item Einlesen anderer Makefiles
 			\item Kontrollstrukturen für Entscheidungen
 			\item Definition mehrzeiliger Variablen
 		\end{itemize}
+	\pause
 	\item[Variablendefinitionen] Zuweisungen von Zeichenketten zu Namen
+	\pause
 	\item[Kommentare] nicht interpretierter Text
 \end{description}
 \end{frame}
@@ -112,17 +117,21 @@
 %	\end{syntdiag}
 %\end{frame}
 
-\begin{frame}[allowframebreaks,fragile]
+\begin{frame}
 \frametitle{Variablen}
 
 	\begin{description}[rekursiv expandierte Variablen]
+		\pause
 		\item[rekursiv expandierte Variablen] keine Expansion in Definition, rekursive Expansion bei Referenz
+		\pause
 		\item[einfach expandierte Variablen] Expansion erfolgt \emph{einmalig} bei Definition/Redefinition
+		\pause
 		\item[automatische Variablen] Belegung durch Make
 	\end{description}
+\end{frame}
 
-	\framebreak
-
+\begin{frame}
+\frametitle{Variablen}
 	\textbf{Variablenreferenz}
 	\begin{syntdiag}
 		\$ \begin{stack}
