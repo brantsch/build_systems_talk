@@ -34,7 +34,7 @@ squeaky_clean: EXPENDABLES+=${DOC}.${TCTARGET}
 squeaky_clean: clean
 
 view: ${DOC}.${TCTARGET}
-	${VIEWER} $< 2>&1 >/dev/null &
+	${VIEWER} $< >/dev/null 2>&1 &
 
 edit:
 	gvim -p ${DOC}.tex Makefile
