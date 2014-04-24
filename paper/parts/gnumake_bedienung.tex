@@ -1,0 +1,41 @@
+% vim: spell spelllang=de 
+% vim: set textwidth=80
+\section{Bedienung und Konfiguration} 
+
+Bevor ein Projekt mit \texttt{make} automatisch erstellt werden kann, muss erst
+die Konfiguration für selbiges in Form eines \texttt{Makefile} angelegt werden,
+welches \texttt{make} darüber informiert, welche Dateien es wie aktualisieren
+soll, abhängig von welchen anderen Dateien. GNU Make (und übrigens auch andere
+Implementierungen von Make) werden in dem Verzeichnis in dem sie aufgerufen
+werden nach einer Datei dieses Namens suchen und sie einlesen.
+%
+Ist diese Konfiguration erst ein mal vorhanden erfordert die Erstellung des
+Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
+
+\subsection{Makefiles}
+
+\subsubsection{Bestandteile} 
+
+\begin{description}
+%
+	\item[Regeln] Beschreiben wann und wie Dateien (\emph{Targets} der Regel)
+	abhängig von \emph{Prerequisites} erstellt werden sollen.
+	%
+	\begin{description}
+		\item[explizit] Targets benennen Dateien
+		\item[implizit] Targets benennen Klassen von Dateien
+	\end{description}
+	%
+%
+	\item[Direktiven] unter anderem:
+	%
+	\begin{itemize}
+		\item Einlesen anderer Makefiles
+		\item Kontrollstrukturen für Entscheidungen
+		\item Definition mehrzeiliger Variablen
+	\end{itemize}
+%
+	\item[Variablendefinitionen] Zuweisungen von Zeichenketten zu Namen
+%
+	\item[Kommentare] von \texttt{make} zu ignorierender Text
+\end{description}
