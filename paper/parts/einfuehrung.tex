@@ -33,3 +33,37 @@ Weiter beschleunigt werden kann die Erstellung durch automatische
 Parallelisierung, bis hin zu verteilter Erstellung auf einer Build-Farm.
 
 \section{Funktion eines Build-Systems}
+
+Die offensichtlichste Funktion eines Build-Systems ist die Automatisierung der
+Erstellung von Dateien. Dies schließt die Verfolgung von Abhängigkeiten ein,
+d.h. dass das Build-System bei der Entscheidung ob eine Datei (neu) erstellt
+werden soll berücksichtigt von welchen anderen Dateien diese abhängt.
+%
+Dabei gehen die Systeme rekursiv vor und erzeugen für die Erstellung einer Datei
+benötigte Ressourcen, falls diese noch nicht vorliegen oder veraltet
+\footnote{besitzen ihrerseits wiederum Abhängigkeiten, die neuer sind als sie
+selbst} sind.
+
+Ab einer gewissen Größe der Projekte ergeben sich nennenswerte
+Konfigurationsmöglichkeiten für das Projekt, beispielsweise für das Ein- oder
+Ausschalten von Features. Hinreichend fortgeschrittene Build-Systeme
+unterstützen dies selbstverständlich. Konfigurationsvariablen werden
+beispielsweise abhängig von Eigenschaften des Host-Systems gesetzt, oder auch
+durch Eingaben des Benutzers, z.B. in einem Konfigurations-Dialog oder in einer
+Konfigurationsdatei.
+
+%
+Zum Funktionsumfang fortgeschrittener Build-Systeme gehört unter anderem auch
+die Ausführung von Tests zur Sicherstellung der erfolgreichen Erstellung. Wie
+bereits erwähnt können Tests auch das Host-System untersuchen, z.B. um zu
+überprüfen ob dieses über für einen erfolgreichen Build benötigte Features
+verfügt. Nach abgeschlossener Erstellung kann des weiteren auch das
+Build-Ergebnis getestet werden. Es bietet sich hier offensichtlich an, das
+gerade erstellte Programm auf seine korrekte Funktion zu überprüfen.
+
+Nicht notwendig, aber hilfreich, und in vielen Build-Systemen vorhanden ist
+Unterstützung für Paketierung und/oder Installation des Build-Ergebnisses. So
+sind einige Build-Systeme beispielsweise in der Lage, installierbare Pakete für
+verschiedene Paketmanager/Installationsroutinen zu erstellen, oder
+Build-Ergebnisse gleich auf dem Host-System in die richtigen Verzeichnisse zu
+installieren.
