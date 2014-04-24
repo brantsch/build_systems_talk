@@ -26,7 +26,7 @@ $(shell ${GITREVCMD} > gitrev.tex)
 endif
 
 # auxiliary targets
-.PHONY: clean squeaky_clean view edit draft
+.PHONY: clean squeaky_clean view edit draft dnotify
 
 clean:
 	-rm -rf ${EXPENDABLES}
@@ -42,3 +42,8 @@ edit:
 
 draft: ${DOC}.tex
 	${compiletex}
+
+dnotify:
+	while true;\
+		do dnotify -M -o -r $(dir ${DOC}.${TCTARGET}) --e make;\
+	done
