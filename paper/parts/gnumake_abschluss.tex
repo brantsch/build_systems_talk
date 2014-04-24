@@ -1,3 +1,85 @@
+% vim: spell spelllang=de
 \section{Abschluss}
+
+Nichts auf dieser Welt hat nur Vor- oder Nachteile. Im Folgenden soll nun kurz
+auf die Vor- und Nachteile von GNU Make eingegangen werden.
+
 \subsection{Stärken}
-\subsection{Schwächen}
+
+% Allgegenwärtigkeit auf POSIX-Systemen
+Für \texttt{make} spricht zunächst ein mal dessen weite Verbreitung. Möchte man
+sich der Verfügbarkeit eines Build-Systems für ein beliebiges UNIX(-ähnliches)
+System sicher sein, so kann man getrost zu \texttt{make} greifen, denn dieses
+ist Teil des POSIX-Standards\citegnumakebib{OpenGroupBaseSpec}, was jedoch -- in einem kleinen Vorgriff auf den
+Abschnitt über Nachteile von \texttt{make} -- nicht den Eindruck vermitteln
+sollte \texttt{Makefiles} wären immer portabel.
+
+% Einfachheit des Einstiegs für viele Anwendungsfälle ausreichende Mächtigkeit
+Die verglichen mit einigen anderen Build-Systemen rudimentäre Natur von
+\texttt{make} macht des Weiteren den Einstieg leicht. Das \texttt{Makefile} für
+ein kleines Projekt ist schnell geschrieben oder noch schneller kopiert.
+
+% Flexibilität
+Für viele Standard-Aufgaben ist \texttt{make} außerdem flexibel genug. Die
+integrierten Funktionen sowie die Möglichkeit beliebige Programme aufzurufen
+erlauben den Einsatz von \texttt{make} für diverseste Aufgaben bei denen Dateien
+abhängig von anderen Dateien aktualisiert werden sollen.
+
+\subsection{Schwächen} 
+
+Das Build-System, dessen Namen ich inzwischen schon viel zu oft ausgeschrieben
+habe, ist bei weitem nicht der Weisheit letzter Schluss. Deswegen werden wir
+uns auch in Kapitel~\ref{chapter:advancedbs} mit Werkzeugen befassen, die
+deutlich fortgeschrittener sind als \texttt{make}. Nicht ohne Grund ist auch die
+Liste der Schwächen deutlich länger als die der Stärken.
+
+%Debugging
+Läuft ein Erstellungsprozess mit \texttt{make} nicht wie erwartet ab, ist man in
+der Verlegenheit ein \texttt{Makefile} debuggen zu müssen. Wie dies geschehen
+kann ist zwar recht gut dokumentiert \citegnumakebib{DobbsDebuggingMakefiles},
+und es existiert sogar eine Art interaktiver Debugger \citegnumakebib{JGC_GMD},
+dennoch ist dies bei weitem nicht so bequem wie das Debugging richtiger
+Programmiersprachen.
+
+Gelegentlich könnte man in die Verlegenheit kommen, in einem \texttt{Makefile}
+Programme aufzurufen, welche mehrere Dateien gleichzeitig
+verändern.\footnote{\LaTeX~z.B. erzeugt einen Wust von Dateien, von
+denen einige von externen Tools gelesen werden müssen um ein Dokument korrekt zu
+erzeugen.}%
+Zu Ärger und/oder Enttäuschung führt in solchen Fällen \texttt{make}s fehlende
+Unterstützung für Regeln die mehrere Targets gleichzeitig aktualisieren.
+
+%Änderungserkennung
+Manchmal wird sich auch die Änderungserkennung, welche sich auf das
+Änderungsdatum der Dateien verlässt, als unpraktisch erweisen, denn oft genug
+bedeutet ein neuer Wert des Änderungsdatums nicht auch eine Änderung des
+Dateiinhalts. 
+%Gravierender wirkt sich diese Schwäche im Zusammenhang mit
+%Netzwerkdateisystemen und einer falsch gehenden Systemuhr aus.
+
+%Geschwätzigkeit
+Aus der rudimentären Natur von \texttt{make}, die seine Grundzüge so einfach und
+leicht erlernbar macht, erwächst auch ein Nachteil, nämlich eine gewisse
+„Geschwätzigkeit“ von \texttt{Makefile}s für Standardaufgaben. Da gewisse
+Targets (z.B. \texttt{install}, \texttt{clean})
+\citegnumakebib{GNUCodingStandards} oft benötigt werden, aber nicht eingebaut
+sind, müssen sie jedes mal inklusive Regel und Rezept vom Entwickler geschrieben
+werden.
+
+%keine Out-Of-Source Builds
+Weiterhin sind keine \emph{Out-Of-Source Builds} wie z.B. die gleichzeitige
+Erstellung eines normalen und eines Debug-Builds in separaten Verzeichnissen
+außerhalb des Quellcodeverzeichnisses möglich, d.h. die Erstellung
+von Programmen muss, falls man nicht gewillt ist unschöne Workarounds zu
+programmieren, im Quellcode-Verzeichnisbaum erfolgen.
+
+%Mangel an Portabilität
+Darüberhinaus besteht ein Mangel an Portabilität. Zwar ist \texttt{make}
+standardisiert, aber Implementierungen wie z.B. GNU Make definieren umfangreiche
+Erweiterungen.  
+%
+Selbst wenn es gelingt ein \texttt{Makefile} zu schreiben, das
+in allen Implementierungen von \texttt{make} gültig ist, welche auf den durch
+ein Projekt unterstützten Plattformen laufen, können diese Systeme immer noch
+genügend Eigenheiten haben, wie beispielsweise verschiedene Arten mit
+dynamischen Bibliotheken umzugehen.
