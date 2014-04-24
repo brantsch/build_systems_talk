@@ -12,7 +12,6 @@
 %draft watermark. Comment out in final release.
 %\usepackage{eso-pic}
 %\usepackage{graphicx}
-%\usepackage{xcolor}
 %\makeatletter
 %\AddToShipoutPicture{%
 %	\raisebox{0.2\paperheight}[\paperheight][\paperwidth]{%
@@ -33,7 +32,12 @@
 \newcites{omakebib}{Literatur zu OMake}
 
 %make hyperref look a little bit more beautiful
-\hypersetup{colorlinks=true,linktoc=section}
+\hypersetup{%
+	colorlinks=true,%
+	linktoc=section,%
+	citecolor=purple,%
+	linkcolor=purple%
+}
 
 %re-style description item labels
 \renewcommand*{\descriptionlabel}[1]{%
