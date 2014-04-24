@@ -8,7 +8,23 @@
 \usepackage{multibib}
 \usepackage{minted}
 %\usepackage{fancyhdr}
+
+%draft watermark. Comment out in final release.
+%\usepackage{eso-pic}
+%\usepackage{graphicx}
 %\usepackage{xcolor}
+%\makeatletter
+%\AddToShipoutPicture{%
+%	\raisebox{0.2\paperheight}[\paperheight][\paperwidth]{%
+%		\rotatebox{45}{%
+%			~~~~~~~~~~~~~
+%			\textcolor[gray]{0.9}%
+%			{\fontsize{6cm}{6cm}\selectfont{Entwurf}}%
+%		}%
+%	}%
+%}
+%\makeatother
+%----------------
 
 %create parts of bibliography
 \newcites{gnumakebib}{Literatur zu GNU Make}
