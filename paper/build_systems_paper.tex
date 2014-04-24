@@ -16,6 +16,12 @@
 %make hyperref look a little bit more beautiful
 \hypersetup{colorlinks=true,linktoc=section}
 
+%re-style description item labels
+\renewcommand*{\descriptionlabel}[1]{%
+	\hspace\labelsep%
+	\normalfont\underline{#1}%
+}
+
 \begin{document}
 	\pagenumbering{gobble}
 	\input{parts/titlepage}
