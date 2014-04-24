@@ -6,6 +6,8 @@
 \usepackage{fix-cm}
 \usepackage{hyperref}
 \usepackage{multibib}
+%\usepackage{fancyhdr}
+%\usepackage{xcolor}
 
 %create parts of bibliography
 \newcites{gnumakebib}{Literatur zu GNU Make}
@@ -31,9 +33,25 @@
 	\input{parts/titlepage}
 	\clearpage
 	\tableofcontents
+
 	\pagebreak
 	\pagenumbering{arabic}
 	\addtocounter{page}{2}
+
+	%\fancyhead{}
+	%\fancyfoot[C]{%
+	%	\thepage
+	%}
+	%\renewcommand{\headrule}{}
+	%\fancyhead[C]{%
+	%	\tiny%
+	%	\ttfamily%
+	%	\color{gray}%
+	%	[author]~\csname @author\endcsname%
+	%	~[git commit]~\input{gitrev}%
+	%	~[date]~\csname @date\endcsname%
+	%}
+	%\pagestyle{fancyplain}
 
 	\chapter{Einführung}
 	\input{parts/einfuehrung}
