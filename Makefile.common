@@ -1,3 +1,4 @@
+TCFLAGS += -halt-on-error -interaction nonstopmode
 # first target is default target: compile our document
 all: ${DOC}.${TCTARGET}
 
