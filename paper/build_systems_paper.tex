@@ -35,14 +35,17 @@
 
 	\pagebreak
 	\pagenumbering{Roman}
-	%\chapter*{Literatur}
 	\addcontentsline{toc}{chapter}{Literatur}
-	%\section*{Literatur zu GNU Make}
+	\begin{minipage}{\textwidth}
 		\input{../bibparts/gnumake.tex}
-	%\section*{Literatur zu OMake}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
 		\input{../bibparts/omake.tex}
-	%\section*{Literatur zu den GNU Autotools}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
 		\input{../bibparts/autotools.tex}
-	%\section*{Literatur zu CMake}
+	\end{minipage}
+	\begin{minipage}{\textwidth}
 		\input{../bibparts/cmake.tex}
+	\end{minipage}
 \end{document}
