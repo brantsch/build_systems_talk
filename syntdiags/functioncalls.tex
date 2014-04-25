@@ -1,5 +1,10 @@
 \begin{syntdiag}
-	‘\$(’ \synt{name}
+	‘\$’
+	\begin{stack}
+		‘(’ \\
+		‘\{’
+	\end{stack}
+	\synt{name}
 	\synt{whitespace}
 	\begin{stack}
 		\\
@@ -8,5 +13,8 @@
 		\end{rep}
 	\end{stack}
 	\synt{string}
-	‘)’
+	\begin{stack}
+		‘)’ \\
+		‘\}’
+	\end{stack}
 \end{syntdiag}
