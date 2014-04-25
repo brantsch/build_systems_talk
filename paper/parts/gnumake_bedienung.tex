@@ -51,7 +51,7 @@ Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
 	%
 	\item[Strings] \hspace{\fill} \input{../syntdiags/strings}
 
-		Der einzige Datentyp den \texttt{make} unterstützt sind Strings.
+		GNU Make kennt keine anderen Datentypen als Strings.
 	%
 	\item[Funktionsaufrufe] \hspace{\fill} \input{../syntdiags/functioncalls}
 		
@@ -62,6 +62,10 @@ Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
 		for Transforming Text) in der offiziellen Dokumentation von GNU Make
 		\citegnumakebib{GNU_Make_Manual}}
 	%
+		Sowohl Funktionsaufrufe als auch Variablenreferenzen sind gleichermaßen
+		mit runden Klammern wie mit geschweiften Klammern möglich, allerdings
+		empfiehlt der Autor sich für jeweils eine Art von Klammern zu
+		entscheiden und dabei zu bleiben.
 	\item[Entscheidungs-Kontrollstrukturen]	\hspace{\fill}
 	\input{../syntdiags/controlstructures}
 	%
@@ -70,7 +74,7 @@ Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
 	\item[Variablenreferenzen] \hspace{\fill} \input{../syntdiags/varref}
 
 		\fcolorbox{red}{white}{
-			\parbox{\linewidth-2\fboxsep}{
+			\parbox{\linewidth-4\fboxsep}{
 				Achtung: Referenzen auf undefinierte Variablen
 				werden \emph{ohne Fehlermeldung} zu leeren Strings aufgelöst!
 			}
@@ -111,6 +115,25 @@ Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
 		auch das Anhängen an undefinierte Variablen möglich ist. Es hat den
 		selben Effekt wie eine normale Zuweisung.
 
-	\item[Regeln]
+	\item[Regeln] \hspace{\fill}
+		\input{../syntdiags/rules}
+		\textit{Recipe Lines} \input{../syntdiags/recipe_lines}
+		\textit{Targets} \input{../syntdiags/targets}
+		\textit{Prerequisites} \input{../syntdiags/prerequisites}
+		\textit{Patterns} \input{../syntdiags/patterns}
+
+		Regeln bestimmen wie Dateien, die sogenannten \emph{Targets} einer
+		Regel, zu aktualisieren sind, und von welchen anderen Dateien sie abhängen.
+		
+		Ist eine der Abhängigkeiten der Datei (im Syntaxdiagramm: Prerequisites)
+		neuer als die Datei, so betrachtet \texttt{make} die Datei als veraltet
+		und wird das Rezept ausführen um die Datei neu zu erstellen. Hierzu wird
+		es jede Zeile (oben \textit{recipe line} genannt) von der Shell
+		ausführen lassen.
+
+		Recipe Lines sind in diesem Kontext als logische Zeilen zu verstehen.
+		Eine logische Zeile kann sich über mehrere tatsächliche Zeilen
+		erstrecken, falls alle Zeilenumbrüche, mit Ausnahme dessen der die
+		logische Zeile beendet, mit Backslashes escaped werden.
 	
 \end{description}
