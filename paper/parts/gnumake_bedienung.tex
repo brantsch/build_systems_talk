@@ -40,106 +40,103 @@ Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
 	\item[Kommentare] von \texttt{make} zu ignorierender Text
 \end{description}
 
-\subsubsection*{Syntax}
+\subsection{Syntax}
 
-\begin{description}
-	%
-	\item[Kommentare] \hspace{\fill} \input{../syntdiags/comments}
-		
-		Sobald \texttt{make} ein `\#'-Zeichen liest, ignoriert es den Rest der
-		Zeile bis einschließlich des Zeilenumbruchs.
-	%
-	\item[Strings] \hspace{\fill} \input{../syntdiags/strings}
-
-		GNU Make kennt keine anderen Datentypen als Strings.
-	%
-	\item[Funktionsaufrufe] \hspace{\fill} \input{../syntdiags/functioncalls}
-		
-		GNU Make stellt eine Sammlung von Hilfsfunktionen zur Verfügung, welche
-		diversen Zwecken dienen, wie beispielsweise der Manipulation von
-		Strings, der Umsetzung weiterer Bedingungs-Konstrukte, wiederholten
-		Auswertung von Ausdrücken, etc.  \footnote{Siehe auch: Kapitel 8 (Functions
-		for Transforming Text) in der offiziellen Dokumentation von GNU Make
-		\citegnumakebib{GNU_Make_Manual}}
-	%
-		Sowohl Funktionsaufrufe als auch Variablenreferenzen sind gleichermaßen
-		mit runden Klammern wie mit geschweiften Klammern möglich, allerdings
-		empfiehlt der Autor sich für jeweils eine Art von Klammern zu
-		entscheiden und dabei zu bleiben.
-	\item[Entscheidungs-Kontrollstrukturen]	\hspace{\fill}
-	\input{../syntdiags/controlstructures}
-	%
-	\item[Bedingungen] \hspace{\fill} \input{../syntdiags/conditionals}
-	%
-	\item[Variablenreferenzen] \hspace{\fill} \input{../syntdiags/varref}
-
-		\fcolorbox{red}{white}{
-			\parbox{\linewidth-4\fboxsep}{
-				Achtung: Referenzen auf undefinierte Variablen
-				werden \emph{ohne Fehlermeldung} zu leeren Strings aufgelöst!
-			}
-		}
-		
-		Dieses Verhaltens sollte man sich bei der Fehlersuche in einem
-		komplizierteren \texttt{Makefile} bewusst sein.
-	%
-	\item[Definition/Redefinition einer Variable] \hspace{\fill}
-	\input{../syntdiags/vardef}
-
-		\texttt{make} unterscheidet zwei Arten von Variablen, denen Werte
-		explizit zugewiesen werden können: \emph{rekursiv expandierte Variablen}
-		und \emph{einfach expandierte Variablen}.
-		%
-		Bei der Definition einer rekursiv expandierten Variable geschieht noch
-		keinerlei Expansion von Variablenreferenzen. Diese erfolgt erst, wenn
-		die Variable referenziert wird. Dann werden, wie der Name schon
-		andeutet, Referenzen rekursiv expandiert.
-		%
-		Referenziert man hingegen in der Definition einer einfach expandierten
-		Variable andere Variablen, so erfolgt die Expansion dieser Referenzen
-		sofort. Gelegentlich ist das hilfreich, beispielsweise wenn man in der
-		Definition einer Variable diese selbst referenzieren
-		will\footnote{verwendete man eine rekursiv expandierte Variable
-		entstünde hier eine Endlosschleife}, meistens werden aber normale,
-		rekursiv expandierte Variablen genügen.
-		
-		Des Weiteren existieren auch sogenannte \emph{automatische Variablen},
-		welche nicht explizit zugewiesen werden können, sondern ihre Werte von
-		\texttt{make} erhalten.
-	%
-	\item[Anhängen an eine Variable] \hspace{\fill}
-	\input{../syntdiags/varappend}
-		
-		Der aufmerksame Leser wird beim Lesen des Beispiel-\texttt{Makefile}s
-		auf Seite~\pageref{subsubsection:examplemakefile} feststellen, dass
-		auch das Anhängen an undefinierte Variablen möglich ist. Es hat den
-		selben Effekt wie eine normale Zuweisung.
-
-	\item[Regeln] \hspace{\fill}
-		\input{../syntdiags/rules}
-		\textit{Recipe Lines} \input{../syntdiags/recipe_lines}
-		\textit{Targets} \input{../syntdiags/targets}
-		\textit{Prerequisites} \input{../syntdiags/prerequisites}
-		\textit{Patterns} \input{../syntdiags/patterns}
-
-		Regeln bestimmen wie Dateien, die sogenannten \emph{Targets} einer
-		Regel, zu aktualisieren sind, und von welchen anderen Dateien sie abhängen.
-		
-		Ist eine der Abhängigkeiten der Datei (im Syntaxdiagramm: Prerequisites)
-		neuer als die Datei, so betrachtet \texttt{make} die Datei als veraltet
-		und wird das Rezept ausführen um die Datei neu zu erstellen. Hierzu wird
-		es jede Zeile (oben \textit{recipe line} genannt) von der Shell
-		ausführen lassen.
-
-		Recipe Lines sind in diesem Kontext als logische Zeilen zu verstehen.
-		Eine logische Zeile kann sich über mehrere tatsächliche Zeilen
-		erstrecken, falls alle Zeilenumbrüche, mit Ausnahme dessen der die
-		logische Zeile beendet, mit Backslashes escaped werden.
+\subsubsection*{Kommentare}  \input{../syntdiags/comments}
 	
-\end{description}
+	Sobald \texttt{make} ein `\#'-Zeichen liest, ignoriert es den Rest der
+	Zeile bis einschließlich des Zeilenumbruchs.
+%
+\subsubsection*{Strings}  \input{../syntdiags/strings}
+
+	GNU Make kennt keine anderen Datentypen als Strings.
+%
+\subsubsection*{Funktionsaufrufe}  \input{../syntdiags/functioncalls}
+	
+	GNU Make stellt eine Sammlung von Hilfsfunktionen zur Verfügung, welche
+	diversen Zwecken dienen, wie beispielsweise der Manipulation von
+	Strings, der Umsetzung weiterer Bedingungs-Konstrukte, wiederholten
+	Auswertung von Ausdrücken, etc.  \footnote{Siehe auch: Kapitel 8 (Functions
+	for Transforming Text) in der offiziellen Dokumentation von GNU Make
+	\citegnumakebib{GNU_Make_Manual}}
+%
+	Sowohl Funktionsaufrufe als auch Variablenreferenzen sind gleichermaßen
+	mit runden Klammern wie mit geschweiften Klammern möglich, allerdings
+	empfiehlt der Autor sich für jeweils eine Art von Klammern zu
+	entscheiden und dabei zu bleiben.
+\subsubsection*{Entscheidungs-Kontrollstrukturen}	
+\input{../syntdiags/controlstructures}
+%
+\subsubsection*{Bedingungen}  \input{../syntdiags/conditionals}
+%
+\subsubsection*{Variablenreferenzen}  \input{../syntdiags/varref}
+
+	\noindent
+	\fcolorbox{red}{white}{
+		\parbox{\linewidth-4\fboxsep}{
+			Achtung: Referenzen auf undefinierte Variablen
+			werden \emph{ohne Fehlermeldung} zu leeren Strings aufgelöst!
+		}
+	}
+	
+	Dieses Verhaltens sollte man sich bei der Fehlersuche in einem
+	komplizierteren \texttt{Makefile} bewusst sein.
+%
+\subsubsection*{Definition/Redefinition einer Variable}
+\input{../syntdiags/vardef}
+
+	\texttt{make} unterscheidet zwei Arten von Variablen, denen Werte
+	explizit zugewiesen werden können: \emph{rekursiv expandierte Variablen}
+	und \emph{einfach expandierte Variablen}.
+	%
+	Bei der Definition einer rekursiv expandierten Variable geschieht noch
+	keinerlei Expansion von Variablenreferenzen. Diese erfolgt erst, wenn
+	die Variable referenziert wird. Dann werden, wie der Name schon
+	andeutet, Referenzen rekursiv expandiert.
+	%
+	Referenziert man hingegen in der Definition einer einfach expandierten
+	Variable andere Variablen, so erfolgt die Expansion dieser Referenzen
+	sofort. Gelegentlich ist das hilfreich, beispielsweise wenn man in der
+	Definition einer Variable diese selbst referenzieren
+	will\footnote{verwendete man eine rekursiv expandierte Variable
+	entstünde hier eine Endlosschleife}, meistens werden aber normale,
+	rekursiv expandierte Variablen genügen.
+	
+	Des Weiteren existieren auch sogenannte \emph{automatische Variablen},
+	welche nicht explizit zugewiesen werden können, sondern ihre Werte von
+	\texttt{make} erhalten.
+%
+\subsubsection*{Anhängen an eine Variable}
+\input{../syntdiags/varappend}
+	
+	Der aufmerksame Leser wird beim Lesen des Beispiel-\texttt{Makefile}s
+	auf Seite~\pageref{subsubsection:examplemakefile} feststellen, dass
+	auch das Anhängen an undefinierte Variablen möglich ist. Es hat den
+	selben Effekt wie eine normale Zuweisung.
+
+\subsubsection*{Regeln}
+	\input{../syntdiags/rules}
+	\textit{Recipe Lines} \input{../syntdiags/recipe_lines}
+	\textit{Targets} \input{../syntdiags/targets}
+	\textit{Prerequisites} \input{../syntdiags/prerequisites}
+	\textit{Patterns} \input{../syntdiags/patterns}
+
+	Regeln bestimmen wie Dateien, die sogenannten \emph{Targets} einer
+	Regel, zu aktualisieren sind, und von welchen anderen Dateien sie abhängen.
+	
+	Ist eine der Abhängigkeiten der Datei (im Syntaxdiagramm: Prerequisites)
+	neuer als die Datei, so betrachtet \texttt{make} die Datei als veraltet
+	und wird das Rezept ausführen um die Datei neu zu erstellen. Hierzu wird
+	es jede Zeile (oben \textit{recipe line} genannt) von der Shell
+	ausführen lassen.
+
+	Recipe Lines sind in diesem Kontext als logische Zeilen zu verstehen.
+	Eine logische Zeile kann sich über mehrere tatsächliche Zeilen
+	erstrecken, falls alle Zeilenumbrüche, mit Ausnahme dessen der die
+	logische Zeile beendet, mit Backslashes escaped werden.
 
 \clearpage \subsection{Ein Beispiel-\texttt{Makefile}}
-\label{subsubsection:examplemakefile} 
+\label{subsubsection:examplemakefile}
 
 Hierbei handelt es sich um das \texttt{Makefile}, welches uns bereits im
 GdP1-Praktikum im ersten Semester begegnet ist. Damals diente es zur Übersetzung
