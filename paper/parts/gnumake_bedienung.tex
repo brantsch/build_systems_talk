@@ -146,6 +146,7 @@ und sie einlesen.
 		erstrecken, falls alle Zeilenumbrüche, mit Ausnahme dessen der die
 		logische Zeile beendet, mit Backslashes escaped werden.
 
+
 		\clearpage
 		\subsection{Ein Beispiel-\texttt{Makefile}}
 			\label{subsubsection:examplemakefile}
@@ -171,3 +172,14 @@ und sie einlesen.
 	Die Namen eines oder mehrerer Targets können als Kommandozeilenargumente
 	angegeben werden, mit der Folge dass diese anstelle des Standard-Targets
 	bearbeitet werden.
+
+	Die hilfreichen Kommandozeilenargumente sind aber nicht auf die Auswahl von
+	Targets beschränkt. Durch Hinzufügen der Option \texttt{--dry-run} bzw.
+	\texttt{-n} zu einem Aufruf von \texttt{make} lassen sich die normalerweise
+	zur Erstellung eines Targets ausgeführten Befehle schnell und einfach
+	prüfen, da die genannte Option bewirkt dass diese nicht ausgeführt, sondern
+	nur ausgegeben werden.
+	%
+	Eine weitergehende Beschreibung der Ausführung von \texttt{make} findet sich
+	z.B. in der zugehörigen \texttt{man}-Page oder der offiziellen Dokumentation
+	\citegnumakebib{GNU_Make_Manual}.
