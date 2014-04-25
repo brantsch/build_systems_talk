@@ -1,20 +1,14 @@
 % vim: spell spelllang=de
 % vim: textwidth=80
-\section{Bedienung und Konfiguration}
+\section{Makefiles}
 
 Bevor ein Projekt mit \texttt{make} automatisch erstellt werden kann, muss erst
-die Konfiguration für selbiges in Form eines \texttt{Makefile} angelegt werden,
-welches \texttt{make} darüber informiert, welche Dateien es wie aktualisieren
-soll, abhängig von welchen anderen Dateien. GNU Make (und übrigens auch andere
-Implementierungen von Make) werden in dem Verzeichnis in dem sie aufgerufen
-werden nach einer Datei dieses Namens suchen und sie einlesen.
-%
-Ist diese Konfiguration erst ein mal vorhanden erfordert die Erstellung des
-Projekts vom Benutzer nur noch mindestens einen Aufruf von \texttt{make}.
+die Konfiguration für selbiges in Form eines \texttt{Makefile} angelegt werden.
+GNU Make (und übrigens auch andere Implementierungen von Make) werden in dem
+Verzeichnis in dem sie aufgerufen werden nach einer Datei dieses Namens suchen
+und sie einlesen.
 
-\subsection{Makefiles}
-
-\subsubsection{Bestandteile}
+\subsection{Bestandteile}
 
 \begin{description}
 %
@@ -148,3 +142,9 @@ verstehen sein.
 \footnotesize
 \inputminted[linenos=true,stepnumber=5]{make}{../code/Worm080_Makefile}
 }
+
+\section{Bedienung}
+
+Die Grundlagen der Bedienung von könnten einfacher kaum sein.
+Zur Erstellung eines Programms genügt im einfachsten Fall ein Aufruf von
+\texttt{make} ohne Kommandozeilenargumente im Projektordner.
