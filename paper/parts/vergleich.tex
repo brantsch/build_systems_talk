@@ -2,7 +2,14 @@
 \newenvironment{bstable}{%
 	\definecolor{lightgray}{gray}{0.9}%
 	\rowcolors{1}{white}{lightgray}%
-	\begin{tabular}{p{0.2\textwidth}|p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}%
+	\begin{tabular}{%
+		p{0.2\textwidth}%
+		|%
+		p{0.16\textwidth}%
+		p{0.16\textwidth}%
+		p{0.16\textwidth}%
+		p{0.16\textwidth}%
+	}%
 	& \textbf{(GNU) Make} & \textbf{OMake} & \textbf{CMake} & \textbf{Autotools} \\ \hline%
 }{%
 	\end{tabular}%
@@ -10,11 +17,56 @@
 
 Die folgende Übersicht ist bei weitem nicht erschöpfend. Die für den Vergleich
 herangezogenen Features wurden vom Autor für wichtig und/oder praktisch
-erachtet.\\
-%
+erachtet.
+
+\noindent
 \begin{bstable}
 	\input{../bs_comparison/part1.tex}
 	\input{../bs_comparison/part2.tex}
 	\input{../bs_comparison/part3.tex}
 	\input{../bs_comparison/part4.tex}
 \end{bstable}
+
+\begin{itemize}
+%
+\item Unter \emph{Cross-Compilation} versteht man die Übersetzung von Software
+auf einem System dessen Architektur von der des Systems auf welchem die Software
+ausgeführt werden soll verschieden ist.
+%
+\item Im Zusammenhang dieses Vergleichs steht \emph{Unterstützung bei der
+Portierung} für die Abstraktion von Eigenheiten der Zielsysteme durch das
+Build-System, z.B. des Umgangs mit Bibliotheken.
+%
+\item Bei der \emph{interaktiven Konfiguration des Projekts} erfragt das
+Build-System die gewünschten Werte für Konfigurationsvariablen über ein
+Dialog-Interface von seinem Anwender.
+%
+\item \emph{Autokonfiguration} ist die automatische Erkennung von und Anpassung
+an Gegebenheiten auf dem Zielsystem.
+%
+\item Build-Systeme, welche \emph{Testsuites} unterstützen, erlauben die
+Ausführung von Tests des Build-Ergebnisses.
+%
+% FIXME: Änderungserkennung erklären
+%
+\item Eine Alternative zum mühsamen und fehleranfälligen Eintragen von
+Abhängigkeiten per Hand ist die \emph{Abhängigkeitsanalyse}, bei welcher das
+Build-System auswertet von welchen anderen Dateien eine Datei abhängt, z.B.
+welche Header-Dateien eine C-Quellcodedatei inkludiert.
+%
+\item Wichtig besonders für größere Projekte sind \emph{parallele
+Erstellungsschritte}. Ist dem Build-System per Kommandozeilenargument oder
+Konfigurationsoption erlaubt, die Übersetzung zu parallelisieren, so wird es
+versuchen voneinander unabhängige Erstellungsschritte parallel auszuführen.
+Insbesondere auf Mehrprozessorsystemen, welche heutzutage sehr verbreitet sind,
+lässt sich hierdurch die Erstellung z.T. deutlich beschleunigen. Die logische
+Fortsetzung ist die verteilte Erstellung auf einer Build-Farm.
+%
+\item \emph{Out-Of-Source Builds}\footnote{gelegentlich auch \emph{Out-Of-Place
+Builds} genannt} sind Erstellungen, welche außerhalb des Quellcodeverzeichnisses
+eines Projekts erfolgen. Bei diesen liegen die Build-Konfiguration und das
+Build-Ergebnis in einem vom Quellcodeverzeichnis separaten Verzeichnis. Sie sind
+beispielsweise hilfreich wenn man gleichzeitig einen Build mit Debug-Symbolen
+haben möchte und einen ohne.
+%
+\end{itemize}
