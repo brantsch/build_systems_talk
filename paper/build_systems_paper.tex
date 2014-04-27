@@ -6,8 +6,10 @@
 \usepackage{fix-cm}
 \usepackage{hyperref}
 \usepackage{multibib}
+\usepackage[table]{xcolor}
 \usepackage{minted}
 \usepackage[nounderscore]{syntax}
+\usepackage{pifont}
 %\usepackage{fancyhdr}
 
 %draft watermark. Comment out in final release.
@@ -45,6 +47,21 @@
 	\hspace\labelsep%
 	\normalfont\underline{#1}%
 }
+
+%give us a nice checkmark
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\tblcenter}[1]{
+	\vspace*{\fill}%
+	\hspace*{\fill}%
+	#1%
+	\hspace*{\fill}%
+	\vspace*{\fill}%
+}
+%\newcommand{\tblcmark}{\tblcenter{\cmark}}
+%\newcommand{\tblxmark}{\tblcenter{\xmark}}
+\newcommand{\tblcmark}{\cmark}
+\newcommand{\tblxmark}{\xmark}
 
 %definitions
 \author{Peter Brantsch}
@@ -92,6 +109,8 @@
 			\input{parts/autotools}
 		\section{CMake}
 			\input{parts/cmake}
+		\section{Vergleich}
+			\input{parts/vergleich}
 
 	\pagebreak
 	\pagenumbering{Roman}

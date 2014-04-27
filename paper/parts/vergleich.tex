@@ -1,0 +1,20 @@
+% vim: spell spelllang=de
+\newenvironment{bstable}{%
+	\definecolor{lightgray}{gray}{0.9}%
+	\rowcolors{1}{white}{lightgray}%
+	\begin{tabular}{p{0.2\textwidth}|p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}%
+	& \textbf{(GNU) Make} & \textbf{OMake} & \textbf{CMake} & \textbf{Autotools} \\ \hline%
+}{%
+	\end{tabular}%
+}
+
+Die folgende Übersicht ist bei weitem nicht erschöpfend. Die für den Vergleich
+herangezogenen Features wurden vom Autor für wichtig und/oder praktisch
+erachtet.\\
+%
+\begin{bstable}
+	\input{../bs_comparison/part1.tex}
+	\input{../bs_comparison/part2.tex}
+	\input{../bs_comparison/part3.tex}
+	\input{../bs_comparison/part4.tex}
+\end{bstable}
