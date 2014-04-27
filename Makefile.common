@@ -2,7 +2,7 @@ TCFLAGS += -halt-on-error -interaction nonstopmode
 # first target is default target: compile our document
 all: ${DOC}.${TCTARGET}
 
-${DOC}.${TCTARGET}: gitrev.tex parts/*.tex ../code/* ../bibparts/*.tex ../syntdiags/*.tex ../build_systems.bib 
+${DOC}.${TCTARGET}: gitrev.tex parts/*.tex ../code/* ../bibparts/*.tex ../syntdiags/*.tex ../bs_comparison/*.tex ../build_systems.bib
 
 # macro defining how .tex files should be compiled
 define compiletex
