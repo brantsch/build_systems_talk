@@ -70,3 +70,21 @@ beispielsweise hilfreich wenn man gleichzeitig einen Build mit Debug-Symbolen
 haben möchte und einen ohne.
 %
 \end{itemize}
+
+\subsection*{Fazit}
+%
+Da CMake deutlich weniger kompliziert zu bedienen ist als die Autotools,
+allerdings einen ähnlichen Funktionsumfang bietet, sollte man nach Ansicht des
+Autors Abstand von den Autotools halten. Neben diesen wirkt CMake deutlich
+fortschrittlicher, und in \textit{The Architecture of Open Source Applications}
+\citecmakebib{aosabook} wird auch CMake als Ersatz für den alternden Ansatz mit
+autoconf/libtool bezeichnet.
+
+OMake sollte mit Vorsicht genossen werden, denn zumindest dem Autor fiel es
+schwer Literatur (außer der offiziellen Dokumentation) zu finden. Dennoch ist es
+ein sehr interessantes Build-System, nicht zuletzt wegen der sehr intelligenten
+Änderungserkennung und der mächtigen Programmiersprache welche es bietet.
+
+\texttt{make} bleibt weiterhin nicht wegzudenken, nicht nur weil POSIX es
+standardisiert, sondern auch weil es ein Ziel von Build-System Generatoren ist,
+z.B. von CMake.
