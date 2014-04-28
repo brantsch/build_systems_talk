@@ -11,5 +11,9 @@ include ../Makefile.common
 
 .PHONY: presentation 
 
+pdfpc-presentation: PRESENTER = pdfpc
+pdfpc-presentation: PRESENTER_FLAGS = 
+pdfpc-presentation: presentation
+
 presentation: ${DOC}.${TCTARGET}
 	${PRESENTER} ${PRESENTER_FLAGS} $< &
