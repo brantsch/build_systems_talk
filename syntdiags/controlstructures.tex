@@ -1,15 +1,24 @@
 \begin{syntdiag}
 	\synt{bedingung}
+	\synt{newline}
 	\synt{string}
+	\synt{newline}
 	\begin{stack}
 		\\
-		\begin{stack}
-			‘else’ \synt{string} \\
-			\begin{rep}
-				\synt{bedingung}
-				\synt{string}
-			\end{rep}
-		\end{stack}
+		\begin{rep}
+			‘else’
+			\synt{bedingung}
+			\synt{newline}
+			\synt{string}
+			\synt{newline}
+		\end{rep}
+	\end{stack}
+	\begin{stack}
+		\\
+		‘else’ 
+		\synt{newline}
+		\synt{string} 
+		\synt{newline}
 	\end{stack}
 	‘endif’
 \end{syntdiag}
