@@ -7,15 +7,20 @@
 	\begin{rep}
 		\synt{string}
 	\end{rep}
+	\synt{newline}
 \end{syntdiag}
 \begin{syntdiag}
 	‘define’
 	\synt{variable~name}
-	‘=’
+	\begin{stack}
+		‘=’\\
+		‘:=’
+	\end{stack}
 	\synt{newline}
 	\begin{rep}
 		\synt{string}
 		\synt{newline}
 	\end{rep}
 	‘endef’
+	\synt{newline}
 \end{syntdiag}

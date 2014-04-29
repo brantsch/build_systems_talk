@@ -1,20 +1,27 @@
 \begin{syntdiag}
 	‘\$’
 	\begin{stack}
-		‘(’ \\
-		‘\{’
-	\end{stack}
-	\synt{name}
-	\synt{whitespace}
-	\begin{stack}
-		\\
-		\begin{rep}
-			\synt{string} ‘,’
-		\end{rep}
-	\end{stack}
-	\synt{string}
-	\begin{stack}
+		‘(’ 
+			\synt{name}
+			\synt{whitespace}
+			\begin{stack}
+				\\
+				\begin{rep}
+					\synt{string} ‘,’
+				\end{rep}
+			\end{stack}
+			\synt{string}
 		‘)’ \\
+		‘\{’
+			\synt{name}
+			\synt{whitespace}
+			\begin{stack}
+				\\
+				\begin{rep}
+					\synt{string} ‘,’
+				\end{rep}
+			\end{stack}
+			\synt{string}
 		‘\}’
 	\end{stack}
 \end{syntdiag}

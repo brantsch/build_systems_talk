@@ -3,8 +3,13 @@
 	\synt{string}
 	\begin{stack}
 		\\
-		‘else’
-		\synt{string}
+		\begin{stack}
+			‘else’ \synt{string} \\
+			\begin{rep}
+				\synt{bedingung}
+				\synt{string}
+			\end{rep}
+		\end{stack}
 	\end{stack}
 	‘endif’
 \end{syntdiag}
