@@ -1,11 +1,8 @@
 % vim: spell spelllang=de textwidth=80
 \subsection{Makefiles}
 
-Bevor ein Projekt mit \texttt{make} automatisch erstellt werden kann, muss erst
-die Konfiguration für selbiges in Form eines \texttt{Makefile} angelegt werden.
-GNU Make (und übrigens auch andere Implementierungen von Make) werden in dem
-Verzeichnis in dem sie aufgerufen werden nach einer Datei dieses Namens suchen
-und sie einlesen.
+Beim Aufruf sucht \texttt{make} im aktuellen Arbeitsverzeichnis nach seiner
+Konfiguration in Form eines \texttt{Makefile}.
 
 \subsubsection{Bestandteile}
 
@@ -165,13 +162,12 @@ und sie einlesen.
 
 \subsection{Bedienung}
 
-	Die Grundlagen der Bedienung könnten einfacher kaum sein.  Zur Erstellung
-	eines Programms genügt im einfachsten Fall ein Aufruf von \texttt{make} ohne
-	Kommandozeilenargumente im Projektordner.
+	Ruft man \texttt{make} ohne Kommandozeilenargumente in einem Ordner auf, in
+	dem ein \texttt{Makefile} existiert, so wird es dieses einlesen und das
+	erste Target erstellen.
 	%
-	Die Namen eines oder mehrerer Targets können als Kommandozeilenargumente
-	angegeben werden, mit der Folge dass diese anstelle des Standard-Targets
-	bearbeitet werden.
+	Um explizit die Erstellung eines/mehrerer Targets anzufordern genügt es
+	deren Namen als Kommandozeilenargumente anzugeben.
 
 	Die hilfreichen Kommandozeilenargumente sind aber nicht auf die Auswahl von
 	Targets beschränkt. Durch Hinzufügen der Option \texttt{--dry-run} bzw.
