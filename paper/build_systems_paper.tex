@@ -1,5 +1,5 @@
 % vim: spell spelllang=de textwidth=80
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt]{article}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -92,30 +92,30 @@
 	%}
 	%\pagestyle{fancyplain}
 
-	\chapter{Einführung}
-	\input{parts/einfuehrung}
+	\section{Einführung}
+		\input{parts/einfuehrung}
 
-	\chapter{GNU Make}
+	\section{GNU Make}
 		\input{parts/gnumake_einfuehrung}
 		\input{parts/gnumake_bedienung}
 		\input{parts/gnumake_abschluss}
 
-	\chapter{Fortgeschrittene Build-Systeme}
+	\section{Fortgeschrittene Build-Systeme}
 		\label{chapter:advancedbs}
 		\input{parts/fortgeschrittene_build_systeme}
-		\section{OMake}
+		\subsection{OMake}
 			\input{parts/omake}
-		\section{GNU Autotools}
+		\subsection{GNU Autotools}
 			\input{parts/autotools}
-		\section{CMake}
+		\subsection{CMake}
 			\input{parts/cmake}
 		\clearpage
-		\section{Vergleich}
+		\subsection{Vergleich}
 			\input{parts/vergleich}
 
 	\pagebreak
 	\pagenumbering{Roman}
-	\addcontentsline{toc}{chapter}{Literatur}
+	\addcontentsline{toc}{section}{Literatur}
 	\noindent
 	\begin{minipage}{\textwidth}
 		\input{../bibparts/gnumake}

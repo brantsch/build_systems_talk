@@ -1,5 +1,5 @@
 % vim: spell spelllang=de textwidth=80
-\section{Makefiles}
+\subsection{Makefiles}
 
 Bevor ein Projekt mit \texttt{make} automatisch erstellt werden kann, muss erst
 die Konfiguration für selbiges in Form eines \texttt{Makefile} angelegt werden.
@@ -7,7 +7,7 @@ GNU Make (und übrigens auch andere Implementierungen von Make) werden in dem
 Verzeichnis in dem sie aufgerufen werden nach einer Datei dieses Namens suchen
 und sie einlesen.
 
-\subsection{Bestandteile}
+\subsubsection{Bestandteile}
 
 \begin{description}
 %
@@ -33,7 +33,7 @@ und sie einlesen.
 	\item[Kommentare] von \texttt{make} zu ignorierender Text
 \end{description}
 
-\subsection{Syntax}
+\subsubsection{Syntax}
 
 	\subsubsection*{Kommentare}  
 		%
@@ -147,7 +147,7 @@ und sie einlesen.
 
 
 		\clearpage
-		\subsection{Ein Beispiel-\texttt{Makefile}}
+		\subsubsection{Ein Beispiel-\texttt{Makefile}}
 			\label{subsubsection:examplemakefile}
 
 			Hierbei handelt es sich um das \texttt{Makefile}, welches uns
@@ -161,8 +161,9 @@ und sie einlesen.
 			\footnotesize
 			\inputminted[linenos=true,stepnumber=5]{make}{../code/Worm080_Makefile}
 			}
+		\clearpage
 
-\section{Bedienung}
+\subsection{Bedienung}
 
 	Die Grundlagen der Bedienung könnten einfacher kaum sein.  Zur Erstellung
 	eines Programms genügt im einfachsten Fall ein Aufruf von \texttt{make} ohne
