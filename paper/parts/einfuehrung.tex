@@ -1,33 +1,21 @@
 % vim: spell spelllang=de textwidth=80
 \subsection{Motivation für den Einsatz eines Build-Systems} 
 
-Build-Systeme erleichtern Entwicklern die Arbeit erheblich, beziehungsweise
-erlauben ihnen große und komplexe Projekte überhaupt zu bewältigen.
+Build-Systeme erleichtern und verbessern die Arbeit von Software-Entwicklern
+erheblich, bzw. erlauben ihnen große und komplexe Projekte überhaupt zu
+bewältigen. Sie sparen viel Arbeit, da mit einem Build-System zur Erstellung des
+Programms nicht mehr viele Aufrufe diverser Programme nötig sind, sondern
+idealerweise nur noch ein Aufruf des Build-Systems.
 %
-Der Einsatz eines Build-Systems spart viel Zeit und Denk-Arbeit,
-denn statt für die Erstellung bzw. Neuerstellung eines Projekts viele
-Aufrufe diverser Programme manuell vornehmen zu müssen, sind beim Einsatz eines
-Build-Systems nur noch wenige Aufrufe desselben nötig, in vielen Fällen auch
-nur ein einziger.
-%
-Weitere Vereinfachungen, bestehend in projektübergreifend einheitlichen Befehlen
-für das Build-System ergeben sich durch Konventionen für die Konfiguration, so
-dass für das Erstellen vieler verschiedener Projekte einheitliche Aufrufe des
-Build-Systems genügen.
+Aufgrund von Konventionen für die Konfiguration von Build-Systemen sind zudem
+die Argumente dieser Aufrufe oft projektübergreifend gleich.
 
-Fortgeschrittene Build-Systeme unterstützen den Entwickler auch bei der
-Portierung von Software-Projekten auf mehrere Plattformen. %FIXME
-
-Außerdem beschleunigen Build-Systeme den Erstellungsprozess ungemein.
-Build-Systeme führen die benötigten Aktionen in erheblich rascherer Folge aus
-als ein Kommandos in eine Shell tippender Benutzer. 
-%
-Darüberhinaus sind selbst rudimentäre Build-Systeme bereits in der Lage unnötige
-Erstellung/Neuerstellung von Teilen eines Programms zu vermeiden und sparen
-dadurch Rechenzeit beim Erstellungsprozess.
-%
-Weiter beschleunigt werden kann die Erstellung durch automatische
-Parallelisierung, bis hin zur verteilten Erstellung auf einer Build-Farm.
+Darüberhinaus erlauben Build-Systeme eine zum Teil drastische Beschleunigung des
+Übersetzungprozesses, da sie die benötigten Aktionen in deutlich rascherer Folge
+ausführen als dies manuell möglich wäre, und im Unterschied zu einem simplen
+Build-Skript die unnötige Erstellung/Neuerstellung vermeiden können. Auch sind
+die Systeme z.T. in der Lage die Erstellung automatisch zu parallelisieren, bis
+hin zur verteilten Erstellung auf einer Build-Farm.
 
 \subsection{Funktion eines Build-Systems}
 
@@ -41,13 +29,11 @@ benötigte Ressourcen, falls diese noch nicht vorliegen oder veraltet
 \footnote{besitzen ihrerseits wiederum Abhängigkeiten, die neuer sind als sie
 selbst} sind.
 
-Ab einer gewissen Größe ergeben sich nennenswerte
-Konfigurationsmöglichkeiten für Projekte, beispielsweise für das Ein- oder
-Ausschalten von Features. Hinreichend fortgeschrittene Build-Systeme
-unterstützen dies selbstverständlich. Konfigurationsvariablen werden
-beispielsweise abhängig von Eigenschaften des Host-Systems gesetzt, oder auch
-durch Eingaben des Benutzers, z.B. in einem Konfigurations-Dialog oder in einer
-Konfigurationsdatei.
+Ab einer gewissen Größe ergeben sich nennenswerte Konfigurationsmöglichkeiten
+für Projekte, beispielsweise für das Ein- oder Ausschalten von Features.
+Konfigurationsvariablen werden beispielsweise abhängig von Eigenschaften des
+Host-Systems gesetzt, oder auch durch Eingaben des Benutzers, z.B. in einem
+Dialog oder in einer Konfigurationsdatei.
 
 %
 Zum Funktionsumfang fortgeschrittener Build-Systeme gehört unter anderem auch
