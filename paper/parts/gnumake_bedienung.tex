@@ -67,6 +67,9 @@ Konfiguration in Form eines \texttt{Makefile}.
 	\subsubsection*{Bedingungen}
 		%
 		\input{../syntdiags/conditionals}
+		%
+		Ist die Bedingung erfüllt bzw. wahr so wird der durch einen
+		Zeilenumbruch von ihr getrennte Text von \texttt{make} evaluiert.
 
 	\subsubsection*{Variablenreferenzen}
 		%
@@ -143,8 +146,18 @@ Konfiguration in Form eines \texttt{Makefile}.
 		Recipe Lines sind in diesem Kontext als logische Zeilen zu verstehen.
 		Eine logische Zeile kann sich über mehrere tatsächliche Zeilen
 		erstrecken, falls alle Zeilenumbrüche, mit Ausnahme dessen der die
-		logische Zeile beendet, mit Backslashes escaped werden.
+		logische Zeile beendet, mit Backslashes escaped werden. Im Zuge der
+		Anwendung eines Recipe zur Erstellung einer Datei wird \texttt{make}
+		jede Recipe Line durch eine Instanz von \texttt{/bin/sh} evaluieren
+		lassen.
 
+		Ein Dateiname passt genau dann auf ein Pattern, wenn er mit den
+		potenziell leeren Strings, welche im Pattern dem \%-Zeichen voran- bzw.
+		nachgestellt sind beginnt bzw. endet. Passt der Name einer zu
+		erstellenden Datei auf ein Pattern auf der Target-Seite einer Regel, so
+		wird versucht die Regel anzuwenden.  Befinden sich auch Patterns auf der
+		Prerequisite-Seite, so wird in ihnen das \%-Zeichen durch denjenigen
+		String ersetzt den es auf der Target-Seite repräsentierte.
 
 		\clearpage
 		\subsubsection{Ein Beispiel-\texttt{Makefile}}
